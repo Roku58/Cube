@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/AseetStore/
+Assets/lilToon/CustomShaderResources/BRP/DefaultMultiRefraction.lilblock.meta
+Assets/lilToon/
