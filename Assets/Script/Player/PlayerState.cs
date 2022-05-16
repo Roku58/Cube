@@ -21,6 +21,15 @@ public class PlayerState : MonoBehaviour
         LevelManagar();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Exp")
+        {
+            exp += 10;
+            Destroy(collision.gameObject);
+        }
+    }
+
     void LevelManagar()//ƒŒƒxƒ‹ŠÇ—
     {
         if(exp == expPool)
