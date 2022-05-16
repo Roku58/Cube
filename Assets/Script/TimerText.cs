@@ -12,6 +12,7 @@ public class TimerText : MonoBehaviour
 
     void Start()
     {
+        second = 0;
     }
 
     void Update()
