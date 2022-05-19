@@ -4608,6 +4608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2427693180971231531}
   - component: {fileID: 4061147428250123787}
+  - component: {fileID: 3200356764188707517}
   - component: {fileID: 2427693180971231535}
   - component: {fileID: 8597594620774347601}
   - component: {fileID: 2754619024885206731}
@@ -4669,6 +4670,18 @@ MonoBehaviour:
   expPool: 10
   playerLife: 10
   playerMaxLife: 100
+--- !u!114 &3200356764188707517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097129338854568849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ad08aa12318e540b1cd26729813771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2427693180971231535
 MonoBehaviour:
   m_ObjectHideFlags: 0

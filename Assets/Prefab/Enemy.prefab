@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6760669241839419824}
+  - component: {fileID: 6760669241728128819}
   - component: {fileID: 6760669241839419825}
   - component: {fileID: 6760669241839419790}
   - component: {fileID: 6760669241839419791}
   - component: {fileID: 6760669241839419788}
   - component: {fileID: 6760669241839419827}
-  - component: {fileID: 6760669241728128819}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -37,6 +37,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6760669241728128819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760669241839419789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ee77d1e162d1241a1ab3becaa82b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  hp: 100
+  bullet: {fileID: 6760669241839419789}
+  death: {fileID: 6760669241839419789}
+  hitef: {fileID: 6760669241839419789}
+  muzzle: {fileID: 6760669241839419824}
+  sarchdistance: 5
+  atackdistance: 2
 --- !u!33 &6760669241839419825
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -138,24 +158,3 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6760669241728128819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6760669241839419789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ee77d1e162d1241a1ab3becaa82b58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 100
-  hp: 100
-  bullet: {fileID: 6760669241839419789}
-  death: {fileID: 6760669241839419789}
-  hitef: {fileID: 6760669241839419789}
-  muzzle: {fileID: 6760669241839419824}
-  player: {fileID: 3097129338854568849, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
-  sarchdistance: 5
-  atackdistance: 2
