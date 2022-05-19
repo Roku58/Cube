@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 589749152}
   - component: {fileID: 589749151}
   m_Layer: 5
-  m_Name: Life
+  m_Name: LIFE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -830,13 +830,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2366,13 +2366,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3543,7 +3543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4600041557765525327, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
       propertyPath: maxEnemies
-      value: 1000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4600041557765525327, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
       propertyPath: enemyPrefabs.Array.data[0]
@@ -3566,7 +3566,8 @@ MonoBehaviour:
   player: {fileID: 5866666020570773258}
   lifeber: {fileID: 1200291642}
   expber: {fileID: 2101653432}
-  levelui: {fileID: 1268772527}
+  level: {fileID: 1268772529}
+  life: {fileID: 589749151}
 --- !u!114 &5866666020570773258 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4061147428250123787, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
