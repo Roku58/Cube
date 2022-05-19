@@ -1733,7 +1733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965841859
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.72265625, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.72265625, b: 1, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1896,7 +1896,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7936506, y: 1}
+    m_SensorSize: {x: 1.3118579, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2293,7 +2293,7 @@ GameObject:
   - component: {fileID: 1268772530}
   - component: {fileID: 1268772529}
   m_Layer: 5
-  m_Name: EXP
+  m_Name: LEVEL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'EXP :'
+  m_text: 'LEVEL :'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.53263664, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.53263664, a: 0.9019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3249,7 +3249,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.139
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3537,6 +3537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4061147428250123787, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
+      propertyPath: expPool
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4600041557765525327, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
       propertyPath: maxEnemies
       value: 1000
@@ -3544,7 +3548,7 @@ PrefabInstance:
     - target: {fileID: 4600041557765525327, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
       propertyPath: enemyPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 6458697665034233664, guid: 0b4cc81dc67503a458c129813367240e, type: 3}
+      objectReference: {fileID: 6760669241839419789, guid: 00ec7670876852246aca593a767e2fc4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
 --- !u!114 &5866666020570773251
@@ -3559,17 +3563,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d016d30051d4f4080b853af6a19153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5866666020570773258}
   lifeber: {fileID: 1200291642}
   expber: {fileID: 2101653432}
---- !u!114 &5866666020570773252
+  levelui: {fileID: 1268772527}
+--- !u!114 &5866666020570773258 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4061147428250123787, guid: 1bcffa9e50faaa94d83e0955dcde1c24, type: 3}
+  m_PrefabInstance: {fileID: 4600041557315457910}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148352694210}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8ad08aa12318e540b1cd26729813771, type: 3}
+  m_Script: {fileID: 11500000, guid: f8cfa5635569e184ca86987c2af5fd89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
