@@ -45,14 +45,14 @@ public class PlayerState : MonoBehaviour
         playerLife = playerMaxLife;
         expPool += 10;
         level ++;
+        Debug.Log("プレイヤーのレベルが" + level + " になった！");
+        Debug.Log("次のレベルまで" + expPool + " 必要");
     }
 
-    void Damage()//プレイヤーの体力を減らす
+    public void Damage(int damage)
     {
-        if(playerLife <= 0)
-        {
-
-        }
+            playerLife -= damage;
+            Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + playerLife + " になった！");
     }
 }
 

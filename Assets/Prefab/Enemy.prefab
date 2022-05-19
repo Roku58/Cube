@@ -52,7 +52,7 @@ MonoBehaviour:
   maxHp: 100
   hp: 100
   bullet: {fileID: 6760669241839419789}
-  death: {fileID: 6760669241839419789}
+  death: {fileID: 6458697665034233664, guid: 0b4cc81dc67503a458c129813367240e, type: 3}
   hitef: {fileID: 6760669241839419789}
   muzzle: {fileID: 6760669241839419824}
   sarchdistance: 5

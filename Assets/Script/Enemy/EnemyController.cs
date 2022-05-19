@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
      NavMeshAgent agent = null;
     [SerializeField, Min(0)] int maxHp = 100;
     [SerializeField, Min(0)] int hp = 100;
+    public int atk = 1;
     [SerializeField] GameObject bullet; //弾プレハブ
     [SerializeField] GameObject death; //死体プレハブ
     [SerializeField] GameObject　hitef; //ヒットエフェクト
@@ -57,7 +58,15 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            collision.gameObject.GetComponent<PlayerState>().Damage(atk);
             this.gameObject.SetActive(false);
+            var obj = Instantiate(death, this.transform.position, Quaternion.identity);
+            foreach (ContactPoint point in collision.contacts)
+            {
+                GameObject damageEf = Instantiate(hitef) as GameObject;
+                damageEf.transform.position = (Vector3)point.point;
+                Debug.Log("EHF");
+            }
             Destroy(this.gameObject,1f);
         }
     }
