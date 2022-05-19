@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-	//　時間を遅くしているかどうか
-	private bool isSlowDown = false;
-	[SerializeField] private GameObject pauseUI;
+	[SerializeField]  GameObject pauseUI;
+	[SerializeField] GameObject levelUpUI;
 
 	void Update()
 	{
@@ -22,7 +21,7 @@ public class GameManager : MonoBehaviour
 			pauseUI.SetActive(!pauseUI.activeSelf);//　ポーズUIのアクティブ、非アクティブを切り替え
 
 			
-			if (pauseUI.activeSelf)//　ポーズUIが表示されてる時は停止
+			if (pauseUI.activeSelf || levelUpUI.activeSelf)//　ポーズUIが表示されてる時は停止
 			{
 				Time.timeScale = 0f;
 			}
