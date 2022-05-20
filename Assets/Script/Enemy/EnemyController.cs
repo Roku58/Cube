@@ -78,7 +78,11 @@ public class EnemyController : MonoBehaviour
 
     void Move()
     {
-        agent.SetDestination(player.transform.position);
+        if(player)
+        {
+            agent.SetDestination(player.transform.position);
+
+        }
     }
 
     void AttackBullet()
