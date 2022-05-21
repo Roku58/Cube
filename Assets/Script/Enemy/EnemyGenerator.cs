@@ -52,12 +52,12 @@ public class EnemyGenerator : MonoBehaviour
             for (var i = 0; i < enemyvolume; i++)
             {
                 float diffPositionX = Random.Range(minPositionX, maxPositonX);
-            float diffPositionZ = Random.Range(minPositionZ, maxPositonZ);
-            float RotationY = Random.Range(0, 360);
-            float RotationZ = Random.Range(0, 360);
-            Vector3 position = new Vector3(transform.position.x + diffPositionX, transform.position.y, transform.position.z + diffPositionZ);
-            Vector3 rotation = new Vector3(transform.rotation.y + RotationY, transform.rotation.z + RotationZ);
-            //, transform.rotation.y + RotationY, transform.rotation.z + RotationZ
+                float diffPositionZ = Random.Range(minPositionZ, maxPositonZ);
+                float RotationY = Random.Range(0, 360);
+                float RotationZ = Random.Range(0, 360);
+                Vector3 position = new Vector3(transform.position.x + diffPositionX, transform.position.y, transform.position.z + diffPositionZ);
+                Vector3 rotation = new Vector3(transform.rotation.y + RotationY, transform.rotation.z + RotationZ);
+                //, transform.rotation.y + RotationY, transform.rotation.z + RotationZ
             
                 Instantiate(enemyPrefabs[choosedIndex], position, Quaternion.Euler(rotation));
             }

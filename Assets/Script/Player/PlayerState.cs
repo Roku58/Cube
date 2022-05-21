@@ -56,7 +56,7 @@ public class PlayerState : MonoBehaviour
             Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + playerLife + " になった！");
     }
 
-    void Death()
+    public void Death()
     {
         Debug.Log("死亡");
     }

@@ -33,6 +33,15 @@ public class GameManager : MonoBehaviour
 
 	}
 
+	public void PlayerDeath()
+	{
+	}
+
+	public void Rezalt()
+    {
+
+    }
+
 	public void OnClickStartButton()
 	{
 		SceneManager.LoadScene("GAME1");

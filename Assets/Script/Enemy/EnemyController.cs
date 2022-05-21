@@ -8,8 +8,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField, Min(0)] int maxHp = 100;
     [SerializeField, Min(0)] int hp = 100;
     public int atk = 1;
-    [SerializeField] GameObject bullet; //弾プレハブ
-    [SerializeField] GameObject death; //死体プレハブ
+    [SerializeField] GameObject bullet; //弾
+    [SerializeField] GameObject death; //死体
     [SerializeField] GameObject　hitef; //ヒットエフェクト
     [SerializeField] Transform muzzle; //マズル
     Animator _anim = default;
@@ -61,12 +61,12 @@ public class EnemyController : MonoBehaviour
             collision.gameObject.GetComponent<PlayerState>().Damage(atk);
             this.gameObject.SetActive(false);
             var obj = Instantiate(death, this.transform.position, Quaternion.identity);
-            foreach (ContactPoint point in collision.contacts)
-            {
-                GameObject damageEf = Instantiate(hitef) as GameObject;
-                damageEf.transform.position = (Vector3)point.point;
-                Debug.Log("EHF");
-            }
+            //foreach (ContactPoint point in collision.contacts)
+            //{
+            //    GameObject damageEf = Instantiate(hitef) as GameObject;
+            //    damageEf.transform.position = (Vector3)point.point;
+            //    Debug.Log("EHF");
+            //}
             Destroy(this.gameObject,1f);
         }
     }
