@@ -8,22 +8,25 @@ public class EnemyController : MonoBehaviour
      NavMeshAgent agent = null;
     [SerializeField, Min(0)] int maxHp = 100;
     [SerializeField, Min(0)] int hp = 100;
-    public int atk = 1;
+    [SerializeField, Min(0)] int atk = 1;
+    [SerializeField, Min(0)] float speed = 1;
+    GameObject player; //
     [SerializeField] GameObject bullet; //弾
     [SerializeField] GameObject death; //死体
     [SerializeField] GameObject　hitef; //ヒットエフェクト
     [SerializeField] Transform muzzle; //マズル
     Animator _anim = default;
-    GameObject player = default;
-    [SerializeField] float sarchdistance = 5;//探知距離
-    [SerializeField] float atackdistance = 2;//探知距離
+    Rigidbody rb = default;
 
-    public ObjectPool<GameObject> enemyPool;
-
+    //public ObjectPool<GameObject> enemyPool;
+    private IObjectPool<EnemyController> enemyPool;
 
 
+    public void Initialize(IObjectPool<EnemyController> pool)
+    {
+        enemyPool = pool;
 
-
+    }
     public int Hp
     {
         set
@@ -37,10 +40,10 @@ public class EnemyController : MonoBehaviour
     }
     void Start()
     {
-        SetHP();
-        _anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+        SetHP();
+        //_anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
     void LateUpdate()
     {
@@ -51,27 +54,19 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
-        Vector3 enemypos = this.transform.position;
-        Vector3 playerpos = player.transform.position;
+        //Vector3 enemypos = this.transform.position;
+        //Vector3 playerpos = player.transform.position;
         //float dis = Vector3.Distance(enemypos, playerpos);
-        //agent.isStopped = false;
         Move();
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerState>().Damage(atk);
-            this.gameObject.SetActive(false);
-            var obj = Instantiate(death, this.transform.position, Quaternion.identity);
-            //foreach (ContactPoint point in collision.contacts)
-            //{
-            //    GameObject damageEf = Instantiate(hitef) as GameObject;
-            //    damageEf.transform.position = (Vector3)point.point;
-            //    Debug.Log("EHF");
-            //}
-            Destroy(this.gameObject,1f);
-            enemyPool.Release(gameObject);
+            //collision.gameObject.GetComponent<PlayerState>().Damage(atk);
+            //var obj = Instantiate(death, this.transform.position, Quaternion.identity);
+            enemyPool.Release(this);
+
         }
     }
 
@@ -84,9 +79,14 @@ public class EnemyController : MonoBehaviour
     {
         if(player)
         {
-            agent.SetDestination(player.transform.position);
+            transform.LookAt(player.transform);
+            Vector3 directionToTarget = (player.transform.position - transform.position).normalized;
+            rb.velocity = directionToTarget * speed;
+            
 
         }
+
+        
     }
 
     void AttackBullet()
@@ -111,12 +111,7 @@ public class EnemyController : MonoBehaviour
     public void Dead()
     {
         //Instantiate(sitai);
-        Destroy(gameObject);
-        enemyPool.Release(gameObject);
-        this.gameObject.SetActive(false);
-        //isDead = true;
-        //animator.SetBool(DeadHash, true);
-        //StartCoroutine(DeadTimer());
+        enemyPool.Release(this);
     }
 
 }

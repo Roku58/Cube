@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField, Min(0)] public int level = 1;//現在レベル
-    [SerializeField, Min(0)] public int exp = 0;//現在経験値
-    [SerializeField, Min(0)] public int expPool = 100;//必要経験値
-    [SerializeField, Min(0)] public int playerLife = 100;//体力
-    [SerializeField, Min(0)] public int playerMaxLife = 100;//最大体力
+    [SerializeField, Tooltip(""), Range(0, 1)] public int level = 1;//現在レベル
+    [SerializeField, Tooltip(""), Range(0, 1)] public int exp = 0;//現在経験値
+    [SerializeField, Tooltip(""), Range(0, 1)] public int expPool = 100;//必要経験値
+    [SerializeField, Tooltip(""), Range(0, 1)] public int playerLife = 100;//体力
+    [SerializeField, Tooltip(""), Range(0, 1)] public int playerMaxLife = 100;//最大体力
 
 
     void Start()
