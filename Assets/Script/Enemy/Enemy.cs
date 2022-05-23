@@ -32,7 +32,12 @@ public class Enemy : MonoBehaviour, IObjectPool
         Vector3 sub = player.transform.position - transform.position;
         sub.Normalize();
 
-        transform.position += sub * _speed * Time.deltaTime;
+        //transform.position += sub * _speed * Time.deltaTime;
+
+
+        Vector3 velocity = sub.normalized * speed;
+        velocity.y = rb.velocity.y;
+        rb.velocity = velocity;
     }
 
     private void OnCollisionEnter(Collision collision)
