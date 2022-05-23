@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour, IObjectPool
     [SerializeField] float _speed = 10;
     SpriteRenderer _image;
 
-    [SerializeField, Tooltip(""), Range(0, 1)] int maxHp = 100;
-    [SerializeField, Tooltip(""), Range(0, 1)] int hp = 100;
-    [SerializeField, Tooltip(""), Range(0, 1)] int atk = 1;
-    [SerializeField, Tooltip(""), Range(0, 1)] float speed = 1;
+    [SerializeField, Tooltip(""), Min(0)] int maxHp = 100;
+    [SerializeField, Tooltip(""), Min(0)] int hp = 100;
+    [SerializeField, Tooltip(""), Min(0)] int atk = 1;
+    [SerializeField, Tooltip(""), Min(0)] float speed = 1;
     GameObject player; //
     [SerializeField, Tooltip("")] GameObject bullet; //’e
     [SerializeField, Tooltip("")] GameObject death; //Ž€‘Ì
@@ -69,8 +69,13 @@ public class Enemy : MonoBehaviour, IObjectPool
     public void Destroy()
     {
         gameObject.SetActive(false);
-        death.SetActive(true);
-        death.transform.parent = null;
+        
+        //if(death.transform.parent != null)
+        //{
+        //    death.SetActive(true);
+        //    death.transform.parent = null;
+
+        //}
         _isActrive = false;
     }
 }
