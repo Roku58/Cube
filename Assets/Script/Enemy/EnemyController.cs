@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Pool;
 //using DG.Tweening;
 public class EnemyController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class EnemyController : MonoBehaviour
     GameObject player = default;
     [SerializeField] float sarchdistance = 5;//探知距離
     [SerializeField] float atackdistance = 2;//探知距離
+
+    public ObjectPool<GameObject> enemyPool;
 
 
 
@@ -68,6 +71,7 @@ public class EnemyController : MonoBehaviour
             //    Debug.Log("EHF");
             //}
             Destroy(this.gameObject,1f);
+            enemyPool.Release(gameObject);
         }
     }
 
@@ -104,10 +108,12 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    void Dead()
+    public void Dead()
     {
         //Instantiate(sitai);
         Destroy(gameObject);
+        enemyPool.Release(gameObject);
+        this.gameObject.SetActive(false);
         //isDead = true;
         //animator.SetBool(DeadHash, true);
         //StartCoroutine(DeadTimer());

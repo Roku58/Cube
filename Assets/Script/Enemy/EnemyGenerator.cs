@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 public class EnemyGenerator : MonoBehaviour
 {
     public bool spawnEnabled = false;//ÉXÉ|Å[ÉìON OFF
@@ -13,6 +14,8 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField] float maxSpawnInterval = 5;//
     [SerializeField] GameObject[] enemyPrefabs;//
     bool spawning = false;
+
+
     void Update()
     {
         if (spawnEnabled)
