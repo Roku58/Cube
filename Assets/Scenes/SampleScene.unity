@@ -1106,7 +1106,8 @@ MonoBehaviour:
   maxPositonZ: 10
   minSpawnInterval: 1
   maxSpawnInterval: 5
-  enemyPrefabs: []
+  enemyPrefabs:
+  - {fileID: 6760669241839419789, guid: 00ec7670876852246aca593a767e2fc4, type: 3}
 --- !u!1 &675050449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,7 +1989,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.417066, y: 1}
+    m_SensorSize: {x: 1.5330778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
