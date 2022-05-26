@@ -50,12 +50,17 @@ public class Enemy : MonoBehaviour, IObjectPool
         }
     }
 
-    public void Damage()
-    {
-        Destroy();
 
-        //TODO
-        //GameManager.Instance.GetExperience(1);
+    public void GetDamage(int damage)
+    {
+        hp -= damage;
+
+        if (hp <= 0)
+        {
+            //var go = Instantiate(_expObj, transform.position, Quaternion.identity);
+            //go.AddEXP = _dropEXPValue;
+            Destroy(gameObject);
+        }
     }
 
     //ObjectPool

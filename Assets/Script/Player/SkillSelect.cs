@@ -7,7 +7,7 @@
 //{
 //    [SerializeField] List<GameObject> _selectList;
 
-//    List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();
+//    //List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();
 //    List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();
 //    CanvasGroup _canvas;
 
@@ -56,7 +56,7 @@
 //        _canvas.alpha = 1;
 
 //        List<SkillSelectTable> table = new List<SkillSelectTable>();
-//        var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
+//        //var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
 
 //        int totalProb = list.Sum(s => s.Probability);
 //        int rand = Random.Range(0, totalProb);
