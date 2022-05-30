@@ -27,6 +27,11 @@ public class Enemy : MonoBehaviour, IObjectPool
 
     void Update()
     {
+
+    }
+
+    void Move()
+    {
         if (!IsActive) return;
 
         Vector3 sub = player.transform.position - transform.position;

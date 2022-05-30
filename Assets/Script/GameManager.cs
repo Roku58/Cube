@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField]  GameObject pauseUI;
 	[SerializeField] GameObject levelUpUI;
 
+	bool _levelEvent = false;
 	void Update()
 	{
 		Pause();
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
 	public void OnClickStartButton()
 	{
-		SceneManager.LoadScene("GAME1");
+		SceneManager.LoadScene("GAME");
 	}
 
 	public void OnClick()
