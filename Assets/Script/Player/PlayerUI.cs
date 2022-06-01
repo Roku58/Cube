@@ -23,11 +23,11 @@ public class PlayerUI : MonoBehaviour
         //lifeber = GameObject.Find("LifeBer").GetComponent<Slider>();
         //expber = GameObject.Find("EXPbar").GetComponent<Slider>();
         //levelui.GetComponent<Text>().text = "Level:" + playerLevel;
-        playerLevel = player.level;
-        maxHp = player.playerMaxLife;
-        maxExp = player.expPool;
-        hp = player.playerLife;
-        exp = player.exp;
+        playerLevel = player._level;
+        maxHp = player._playerMaxLife;
+        maxExp = player._expPool;
+        hp = player._playerLife;
+        exp = player._exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;
@@ -40,11 +40,11 @@ public class PlayerUI : MonoBehaviour
 
     void Update()
     {
-        playerLevel = player.level;
-        maxHp = player.playerMaxLife;
-        maxExp = player.expPool;
-        hp = player.playerLife;
-        exp = player.exp;
+        playerLevel = player._level;
+        maxHp = player._playerMaxLife;
+        maxExp = player._expPool;
+        hp = player._playerLife;
+        exp = player._exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;

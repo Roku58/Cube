@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField, Tooltip(""), Min(0)] public int level = 1;//現在レベル
-    [SerializeField, Tooltip(""), Min(0)] public int exp = 0;//現在経験値
-    [SerializeField, Tooltip(""), Min(0)] public int expPool = 100;//必要経験値
-    [SerializeField, Tooltip(""), Min(0)] public int playerLife = 100;//体力
-    [SerializeField, Tooltip(""), Min(0)] public int playerMaxLife = 100;//最大体力
+    [SerializeField, Tooltip(""), Min(0)] public int _level = 1;//現在レベル
+    [SerializeField, Tooltip(""), Min(0)] public int _exp = 0;//現在経験値
+    [SerializeField, Tooltip(""), Min(0)] public int _expPool = 100;//必要経験値
+    [SerializeField, Tooltip(""), Min(0)] public int _playerLife = 100;//体力
+    [SerializeField, Tooltip(""), Min(0)] public int _playerMaxLife = 100;//最大体力
 
+    bool _isDeath = false;
 
     void Start()
     {
-        playerLife = playerMaxLife;
+        _playerLife = _playerMaxLife;
     }
 
     void Update()
@@ -25,14 +26,14 @@ public class PlayerState : MonoBehaviour
     {
         if (collision.gameObject.tag == "Exp")
         {
-            exp += 10;
+            _exp += 10;
             Destroy(collision.gameObject);
         }
     }
 
     void LevelManagar()//レベル管理
     {
-        if(exp == expPool)
+        if(_exp == _expPool)
         {
             LevelUp();
         }
@@ -40,24 +41,28 @@ public class PlayerState : MonoBehaviour
 
     void LevelUp()//レベルが上がった際の処理
     {
-        exp = 0;
-        playerMaxLife += 10;
-        playerLife = playerMaxLife;
-        expPool += 10;
-        level ++;
-        Debug.Log("プレイヤーのレベルが" + level + " になった！");
-        Debug.Log("次のレベルまで" + expPool + " 必要");
+        _exp = 0;
+        _playerMaxLife += 10;
+        _playerLife = _playerMaxLife;
+        _expPool += 10;
+        _level ++;
+        Debug.Log("プレイヤーのレベルが" + _level + " になった！");
+        Debug.Log("次のレベルまで" + _expPool + " 必要");
     }
 
     public void Damage(int damage)
     {
-
-            playerLife -= damage;
-            Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + playerLife + " になった！");
+        if(_playerLife <= 0)
+        {
+            Death();
+        }
+            _playerLife -= damage;
+            Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _playerLife + " になった！");
     }
 
     public void Death()
     {
+        _isDeath = true;
         Debug.Log("死亡");
     }
 }

@@ -11,6 +11,7 @@ public class PlayreMove : MonoBehaviour
     Vector3 dir;
     Rigidbody _rb = default;
     Animator _anim = default;
+    bool _canMove = true;
 
 
 
@@ -22,7 +23,11 @@ public class PlayreMove : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if( _canMove )
+        {
+            Move();
+
+        }
     }
 
     void LateUpdate()
