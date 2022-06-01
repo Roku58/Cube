@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField]  GameObject pauseUI;
 	[SerializeField] GameObject levelUpUI;
+	[SerializeField] GameObject gameOverUI;
 
 	bool _levelEvent = false;
+	bool _isDeath = false;
 	void Update()
 	{
 		Pause();
@@ -21,21 +23,23 @@ public class GameManager : MonoBehaviour
 			
 			pauseUI.SetActive(!pauseUI.activeSelf);//　ポーズUIのアクティブ、非アクティブを切り替え
 
-			
-			if (pauseUI.activeSelf || levelUpUI.activeSelf)//　ポーズUIが表示されてる時は停止
-			{
-				Time.timeScale = 0f;
-			}
-			else//　ポーズUIが表示されてなければ通常通り進行
-			{
-				Time.timeScale = 1f;
-			}
+		}
+
+		if (pauseUI.activeSelf || levelUpUI.activeSelf || gameOverUI.activeSelf)//　ポーズUIが表示されてる時は停止
+		{
+			Time.timeScale = 0f;
+		}
+		else//　ポーズUIが表示されてなければ通常通り進行
+		{
+			Time.timeScale = 1f;
 		}
 
 	}
 
 	public void PlayerDeath()
 	{
+		gameOverUI.SetActive(!gameOverUI.activeSelf);
+		Rezalt();
 	}
 
 	public void Rezalt()

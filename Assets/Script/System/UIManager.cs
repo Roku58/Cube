@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PlayerUI : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     [SerializeField] PlayerState player;
     [SerializeField] Slider lifeber = default;
     [SerializeField] Slider expber = default;
-    [SerializeField]TextMeshProUGUI level;
+    [SerializeField] TextMeshProUGUI level;
     [SerializeField] TextMeshProUGUI life;
     int playerLevel ;
     int maxHp;
@@ -19,15 +19,11 @@ public class PlayerUI : MonoBehaviour
     int exp;
     void Start()
     {
-        //// スライダーを取得する
-        //lifeber = GameObject.Find("LifeBer").GetComponent<Slider>();
-        //expber = GameObject.Find("EXPbar").GetComponent<Slider>();
-        //levelui.GetComponent<Text>().text = "Level:" + playerLevel;
-        playerLevel = player._level;
-        maxHp = player._playerMaxLife;
-        maxExp = player._expPool;
-        hp = player._playerLife;
-        exp = player._exp;
+        playerLevel = player.Level;
+        maxHp = player.MaxLife;
+        maxExp = player.ExpPool;
+        hp = player.Life;
+        exp = player.Exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;
@@ -40,11 +36,11 @@ public class PlayerUI : MonoBehaviour
 
     void Update()
     {
-        playerLevel = player._level;
-        maxHp = player._playerMaxLife;
-        maxExp = player._expPool;
-        hp = player._playerLife;
-        exp = player._exp;
+        playerLevel = player.Level;
+        maxHp = player.MaxLife;
+        maxExp = player.ExpPool;
+        hp = player.Life;
+        exp = player.Exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;

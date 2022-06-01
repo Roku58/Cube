@@ -23,7 +23,12 @@ public class PlayreMove : MonoBehaviour
 
     void Update()
     {
-        if( _canMove )
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (_canMove)
         {
             Move();
 
