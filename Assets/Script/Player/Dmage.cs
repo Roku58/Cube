@@ -11,26 +11,17 @@ public class Dmage : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.GetComponent<EnemyController>())
-        {
-            collision.gameObject.GetComponent<EnemyController>().Damage(damage);
-        }
         if (collision.gameObject.tag == "Enemy")
         {
-            foreach (ContactPoint point in collision.contacts)
-            {
-                GameObject damageEf = Instantiate(hitef) as GameObject;
-                damageEf.transform.position = (Vector3)point.point;
-                Debug.Log("EHF");
-            }
+            collision.gameObject.GetComponent<EnemyController>().GetDamage(damage);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<EnemyController>())
+        if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyController>().Damage(damage);
+            other.gameObject.GetComponent<EnemyController>().GetDamage(damage);
         }
     }
 }

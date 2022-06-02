@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour, IObjectPool
 
     }
 
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
     void Move()
     {
         if (!IsActive) return;
@@ -49,9 +54,9 @@ public class Enemy : MonoBehaviour, IObjectPool
     {
         if (collision.gameObject.tag == "Player")
         {
-            //collision.gameObject.GetComponent<PlayerState>().Damage(atk);
-            //var obj = Instantiate(death, this.transform.position, Quaternion.identity);
-            Destroy();
+            collision.gameObject.GetComponent<PlayerState>().Damage(atk);
+            var obj = Instantiate(death, this.transform.position, Quaternion.identity);
+            Deth();
         }
     }
 
@@ -81,11 +86,11 @@ public class Enemy : MonoBehaviour, IObjectPool
         gameObject.SetActive(true);
         _isActrive = true;
     }
-    public void Destroy()
+    public void Deth()
     {
         gameObject.SetActive(false);
-        
-        //if(death.transform.parent != null)
+        Instantiate(death, this.transform.position, Quaternion.identity);
+        //if (death.transform.parent != null)
         //{
         //    death.SetActive(true);
         //    death.transform.parent = null;

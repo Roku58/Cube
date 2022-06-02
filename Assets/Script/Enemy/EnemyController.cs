@@ -97,7 +97,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // 被ダメージ処理
-    public void Damage(int damage)
+    public void GetDamage(int damage)
     {
         hp -= damage;
         Debug.Log(damage + " ダメージを受けてエネミーのHPが " + hp + " になった！");

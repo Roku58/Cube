@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField, Tooltip("現在レベル"), Min(0)] public int _level = 1;//現在レベル
+    [SerializeField, Tooltip("現在レベル"), Min(0)]  int _level = 1;//現在レベル
     public int Level => _level;
-    [SerializeField, Tooltip("現在経験値"), Min(0)] public int _exp = 0;//現在経験値
+    [SerializeField, Tooltip("現在経験値"), Min(0)]  int _exp = 0;//現在経験値
     public int Exp => _exp;
-    [SerializeField, Tooltip("必要経験値"), Min(0)] public int _expPool = 100;//必要経験値
+    [SerializeField, Tooltip("必要経験値"), Min(0)]  int _expPool = 100;//必要経験値
     public int ExpPool => _expPool;
-    [SerializeField, Tooltip("体力"), Min(0)] public int _playerLife = 100;//体力
+    [SerializeField, Tooltip("体力"), Min(0)]  int _playerLife = 100;//体力
     public int Life => _playerLife;
-    [SerializeField, Tooltip("最大体力"), Min(0)] public int _playerMaxLife = 100;//最大体力
+    [SerializeField, Tooltip("最大体力"), Min(0)]  int _playerMaxLife = 100;//最大体力
     public int MaxLife => _playerMaxLife;
 
     bool _isDeath = false;
     public bool IsDeath => _isDeath;
 
+    bool _isLevelUp = false;
+    public bool IsLevelUp => _isLevelUp;
     void Start()
     {
         _playerLife = _playerMaxLife;
@@ -30,16 +32,16 @@ public class PlayerState : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Exp")
-        {
-            _exp += 10;
-            Destroy(collision.gameObject);
-        }
+        //if (collision.gameObject.tag == "Exp")
+        //{
+        //    _exp += 10;
+        //    Destroy(collision.gameObject);
+        //}
     }
 
     void LevelManagar()//レベル管理
     {
-        if(_exp == _expPool)
+        if(_exp >= _expPool)
         {
             LevelUp();
         }
@@ -48,6 +50,7 @@ public class PlayerState : MonoBehaviour
     void LevelUp()//レベルが上がった際の処理
     {
         _exp = 0;
+        _isLevelUp = true;
         _playerMaxLife += 10;
         _playerLife = _playerMaxLife;
         _expPool += 10;
@@ -56,6 +59,10 @@ public class PlayerState : MonoBehaviour
         Debug.Log("次のレベルまで" + _expPool + " 必要");
     }
 
+    public void GetExp(int exp)
+    {
+        _exp += exp;
+    }
     public void Damage(int damage)
     {
         if(_playerLife <= 0)

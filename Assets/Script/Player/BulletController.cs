@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<EnemyController>())
         {
-            collision.gameObject.GetComponent<EnemyController>().Damage(damage);
+            collision.gameObject.GetComponent<EnemyController>().GetDamage(damage);
         }
 
         if(collision.gameObject.tag == "Enemy")
@@ -34,7 +34,7 @@ public class BulletController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<EnemyController>())
         {
-            other.gameObject.GetComponent<EnemyController>().Damage(damage);
+            other.gameObject.GetComponent<EnemyController>().GetDamage(damage);
         }
 
         if(other.gameObject.tag == "Enemy")
