@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] PlayerState player;
     [SerializeField] Slider lifeber = default;
     [SerializeField] Slider expber = default;
+    [SerializeField] Slider spber = default;
     [SerializeField] TextMeshProUGUI level;
     [SerializeField] TextMeshProUGUI life;
     int playerLevel ;
@@ -17,20 +18,26 @@ public class UIManager : MonoBehaviour
     int hp;
     int maxExp;
     int exp;
+    int _maxSp;
+    int _sp;
     void Start()
     {
         playerLevel = player.Level;
         maxHp = player.MaxLife;
         maxExp = player.ExpPool;
+        _maxSp = player.MaxSp;
+        _sp = player.Sp;
         hp = player.Life;
         exp = player.Exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;
         expber.maxValue = maxExp;
+        spber.maxValue = _maxSp;
         //スライダーの現在値の設定
         lifeber.value = hp;
         expber.value = exp;
+        spber.value = _sp;
     }
 
 
@@ -39,6 +46,8 @@ public class UIManager : MonoBehaviour
         playerLevel = player.Level;
         maxHp = player.MaxLife;
         maxExp = player.ExpPool;
+        _maxSp = player.MaxSp;
+        _sp = player.Sp;
         hp = player.Life;
         exp = player.Exp;
 
@@ -49,6 +58,7 @@ public class UIManager : MonoBehaviour
         //スライダーの現在値の設定
         lifeber.value = hp;
         expber.value = exp;
+        spber.value = _sp;
         level.text = "LEVEL:" + playerLevel;
         life.text = "LIFE:" + hp + "/" + maxHp;
     }

@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour, IObjectPool
     [SerializeField, Tooltip(""), Min(0)] float speed = 1;
     GameObject player; //
     [SerializeField, Tooltip("")] GameObject bullet; //弾
-    [SerializeField, Tooltip("")] GameObject death; //死体
+    [SerializeField, Tooltip("")] GameObject[] death; //死体
     [SerializeField, Tooltip("")] GameObject hitef; //ヒットエフェクト
     [SerializeField, Tooltip("")] Transform muzzle; //マズル
     Animator _anim = default;
@@ -54,8 +54,8 @@ public class Enemy : MonoBehaviour, IObjectPool
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerState>().Damage(atk);
-            var obj = Instantiate(death, this.transform.position, Quaternion.identity);
+            collision.gameObject.GetComponent<PlayerState>().GetDamage(atk);
+            //var obj = Instantiate(death, this.transform.position, Quaternion.identity);
             Deth();
         }
     }
@@ -88,8 +88,9 @@ public class Enemy : MonoBehaviour, IObjectPool
     }
     public void Deth()
     {
+        var x = Random.Range(0, death.Length);
         gameObject.SetActive(false);
-        Instantiate(death, this.transform.position, Quaternion.identity);
+        Instantiate(death[x], this.transform.position, Quaternion.identity);
         //if (death.transform.parent != null)
         //{
         //    death.SetActive(true);

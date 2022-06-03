@@ -88,6 +88,7 @@ public class SkillSelect : MonoBehaviour
         //GameManager.Instance.LevelUpSelect(_selectTable[index]);
         //LevelUpSelect(_selectTable[index])
         levelUp.SetActive(false);
+        _isLevelUp =false;
     }
 
     //public void LevelUpSelect(SkillSelectTable table)

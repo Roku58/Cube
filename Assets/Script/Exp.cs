@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
-    public int exp = 10;
+    public int exp = 0;
+    public int sp = 0;
+    public int hp = 0;
     GameObject player;
 
     void Start()
@@ -30,7 +32,7 @@ public class Exp : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
 
-            collision.gameObject.GetComponent<PlayerState>().GetExp(exp);
+            collision.gameObject.GetComponent<PlayerState>().GetItem(exp,sp, hp);
             Destroy(this.gameObject);
         }
 
