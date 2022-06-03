@@ -8,7 +8,7 @@ public enum SelectType
     Execute = 3,
 }
 
-[Serializable]
+//[Serializable]
 public class SkillSelectTable
 {
     public SelectType Type;
