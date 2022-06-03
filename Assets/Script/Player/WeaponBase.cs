@@ -5,18 +5,17 @@ using UnityEngine;
 /// <summary>武器の基底クラス </summary>
 public abstract class WeaponBase : MonoBehaviour
 {
+    [SerializeField, Tooltip("武器レベル")] int _weponLevel = 0;
     [SerializeField, Tooltip("次の攻撃までの時間（間隔）")] int _attackInterval = 0;
     [SerializeField, Tooltip("敵に与えるダメージ")] int _damage = 0;
     [SerializeField, Tooltip("ノックバック時にかける力")] int _knockBackPower = 0;
     [SerializeField, Tooltip("移動速度")] int _moveSpeed = 0;
     [SerializeField, Tooltip("生成数")] int _generatorNumber = 1;
 
-    int _currentLevel = 1;
+    public int damage = 10;
+    [SerializeField] GameObject hitef; //ヒットエフェクト
 
-    /// <summary>次の攻撃までの時間(間隔) </summary>
-    public int AttackInterval { get => _attackInterval; set => _attackInterval = value; }
-    /// <summary>移動速度</summary>
-    public int MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
+    int _currentLevel = 1;
   
     /// <summary>オブジェクトの動き </summary>
     /// <param name="vector3">進行方向</param>
@@ -26,9 +25,6 @@ public abstract class WeaponBase : MonoBehaviour
     /// <param name="playerTransform">プレイヤーの位置</param>
     public abstract IEnumerator Generator(Transform playerTransform);
 
-    /// <summary>決められた数武器を生成する </summary>
-    /// <param name="weaponObject">生成する武器</param>
-    /// <param name="playerTransform">プレイヤーの位置</param>
     public void GameObjectGenerator(GameObject weaponObject, Transform playerTransform)
     {
         for (var i = 0; i < _generatorNumber; i++)
@@ -40,19 +36,20 @@ public abstract class WeaponBase : MonoBehaviour
             go.Move(playerTransform);
         }
     }
-
-    /// <summary>敵に当たったらダメージを与える </summary>
-    public void Attack(Collider2D other, bool destroyFlag)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            Enemy enemyStatus = other.GetComponent<Enemy>();
-            enemyStatus.GetDamage(_damage);
 
-            if (destroyFlag)    //敵に当たったら削除される武器なら削除する
-            {
-                Destroy(gameObject);
-            }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyController>().GetDamage(damage);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyController>().GetDamage(damage);
         }
     }
 }

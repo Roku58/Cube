@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SkillSelect : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class SkillSelect : MonoBehaviour
     [SerializeField] PlayerState player;
     [SerializeField] GameObject levelUp;
     [SerializeField] List<GameObject> _selectList;//オブジェクト
-    //List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();//スキル内容
+    List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();//スキル内容
     List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();//スキルテキスト
 
     bool _isLevelUp=false;
@@ -53,13 +54,13 @@ public class SkillSelect : MonoBehaviour
     {
         levelUp.SetActive(true);
         //リスト宣言
-        //List<SkillSelectTable> table = new List<SkillSelectTable>();
-        //
-        //var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
-        //
-        //int totalProb = list.Sum(s => s.Probability);
-        //
-        //int rand = Random.Range(0, totalProb);
+        List<SkillSelectTable> table = new List<SkillSelectTable>();
+
+        var list = GameData.SkillSelectTable.Where(s => player.Level >= s.Level);
+
+        int totalProb = list.Sum(s => s.Probability);
+
+        int rand = Random.Range(0, totalProb);
         //
         for (int i = 0; i < _selectList.Count; ++i)
         {
@@ -69,17 +70,17 @@ public class SkillSelect : MonoBehaviour
         //
         for (int i = 0; i < _selectList.Count; ++i)
         {
-            //foreach (var s in list)
-            //{
-            //    if (rand < s.Probability)
-            //    {
-            //        _selectTable[i] = s;
-            //        _selectText[i].text = s.Name;
-            //        list = list.Where(ls => !(ls.Type == s.Type && ls.TargetId == s.TargetId));
-            //        break;
-            //    }
-            //    rand -= s.Probability;
-            //}
+            foreach (var s in list)
+            {
+                if (rand < s.Probability)
+                {
+                    _selectTable[i] = s;
+                    _selectText[i].text = s.Name;
+                    list = list.Where(ls => !(ls.Type == s.Type && ls.TargetId == s.TargetId));
+                    break;
+                }
+                rand -= s.Probability;
+            }
         }
     }
 
@@ -87,8 +88,8 @@ public class SkillSelect : MonoBehaviour
     {
         //GameManager.Instance.LevelUpSelect(_selectTable[index]);
         //LevelUpSelect(_selectTable[index])
-        levelUp.SetActive(false);
-        _isLevelUp =false;
+        //levelUp.SetActive(false);
+        _isLevelUp = false;
     }
 
     //public void LevelUpSelect(SkillSelectTable table)
