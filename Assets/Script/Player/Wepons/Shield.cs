@@ -18,7 +18,7 @@ public class Shield : MonoBehaviour
     //　回転するスピード
     [SerializeField] private float _rotateSpeed = 180f;
     //　ターゲットからの距離
-    [SerializeField] private Vector3 _distanceFromTarget = new Vector3(0f, 1f, 2f);
+    [SerializeField] private Vector3 _distanceFromTarget = new Vector3(0f, 1f, 0f);
 
 
     void Start()

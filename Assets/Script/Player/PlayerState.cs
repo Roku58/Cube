@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class PlayerState : MonoBehaviour
 {
     [SerializeField, Tooltip("現在レベル"), Min(0)]  int _level = 1;
@@ -19,6 +19,9 @@ public class PlayerState : MonoBehaviour
     [SerializeField, Tooltip("最大SP"), Min(0)] int _maxSp = 100;
     public int MaxSp => _maxSp;
 
+    [SerializeField] GameObject _damageEf;
+    [SerializeField] float _damage;
+
     bool _isDeath = false;
     public bool IsDeath => _isDeath;
 
@@ -26,12 +29,17 @@ public class PlayerState : MonoBehaviour
     public bool IsLevelUp => _isLevelUp;
     void Start()
     {
+        //_damageEf = GetComponent<GlitchFx>();
         _life = _maxLife;
     }
 
     void Update()
     {
         LevelManagar();
+        if(_maxLife < _life)
+        {
+            _life = _maxLife;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -75,10 +83,30 @@ public class PlayerState : MonoBehaviour
         {
             Death();
         }
-            _life -= damage;
-            Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");
+        //DamageEf();
+        StartCoroutine("DamageEf");
+        _life -= damage;
+        Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");
+        //_damageEf.GetComponent<GlitchFx>().enabled = false;
     }
 
+    IEnumerator DamageEf()
+    {
+        //float a = _damageEf.intensity;
+        //DOTween.To(
+        //getter: () => a, // Tweenしたい対象の取得 
+        //setter: num => a = num, // Tweenしたい対象の設定
+        //endValue: 0.5, // 最終的な値
+        //duration: 0.3 // アニメーション時間
+        //);
+        _damageEf.GetComponent<GlitchFx>().enabled = true;
+        //yield return null;
+        yield return new WaitForSeconds(_damage);
+
+        _damageEf.GetComponent<GlitchFx>().enabled = false;
+
+    }
+    
     public void Death()
     {
 

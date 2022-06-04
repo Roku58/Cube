@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeponsManager : MonoBehaviour
 {
-
+    [SerializeField] GameObject[] wepons;
     // Start is called before the first frame update
     void Start()
     {
