@@ -37,4 +37,9 @@ public class Exp : MonoBehaviour
         }
 
     }
+
+     void Move()
+    {
+        
+    }
 }
