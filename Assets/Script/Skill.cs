@@ -16,13 +16,12 @@ public class Skill: ScriptableObject
 
     [SerializeField] SkillType skillType = SkillType.Wepon;
     [SerializeField] string itemName; // アイテムの名前
-    [SerializeField] int skillId;//スキルID
+    [SerializeField] public　int skillId;//スキルID
     [SerializeField] public int skillLevel;//スキルレベル
     [SerializeField] public int maxskillLevel;//スキルレベル
-    [SerializeField] float cooltime;
-    [SerializeField] int atk;
-    [SerializeField] float speed;
-    [SerializeField] float time;
+    [SerializeField] float cooltime;//クールタイム
+    [SerializeField] int atk;//攻撃力
+    [SerializeField] float speed;//速さ
 
     [SerializeField] Sprite icon; // アイテムの画像
     [SerializeField] bool isCombinable; // 合体できるかどうか
@@ -34,12 +33,16 @@ public class Skill: ScriptableObject
     {
         return skillType;
     }
+    //　スキルのIDを返す
+    public int GetSkillID()
+    {
+        return skillId;
+    }
     //　スキルの名前を返す
     public string GetItemName()
     {
         return itemName;
     }
-
     //　スキルの名前を返す
     public Sprite GetIcon()
     {

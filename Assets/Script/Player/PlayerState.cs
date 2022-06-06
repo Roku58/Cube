@@ -27,6 +27,9 @@ public class PlayerState : MonoBehaviour
 
     bool _isLevelUp = false;
     public bool IsLevelUp => _isLevelUp;
+
+    [SerializeField]List<SkillManager> _skill = new List<SkillManager>();
+
     void Start()
     {
         //_damageEf = GetComponent<GlitchFx>();
@@ -69,6 +72,12 @@ public class PlayerState : MonoBehaviour
         _level ++;
         Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");
+    }
+
+    public void AddSkill(int id)
+    {
+        //_skill.Add((SkillID)id);
+        //SkillManager.Instance.AddSkill(id);
     }
 
     public void GetItem(int exp ,int sp , int hp)

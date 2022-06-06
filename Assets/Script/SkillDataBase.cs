@@ -6,8 +6,7 @@ using UnityEngine;
 public class SkillDataBase : ScriptableObject
 {
 
-	[SerializeField]
-	public List<Skill> skillLists = new List<Skill>();
+	[SerializeField]　public List<Skill> skillLists = new List<Skill>();
 
 	//　アイテムリストを返す
 	public List<Skill> GetItemLists()
