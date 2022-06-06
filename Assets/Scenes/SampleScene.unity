@@ -2325,7 +2325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1706284f9bbbb4e199374db583725bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intensity: 0.7
+  _intensity: 1
   shader: {fileID: 4800000, guid: de782114409bf409495896cc089fbf82, type: 3}
 --- !u!1 &965841857
 GameObject:
@@ -2758,7 +2758,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.5356176, y: 1}
+    m_SensorSize: {x: 1.3101892, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4492,7 +4492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1835022312
 Transform:
   m_ObjectHideFlags: 0
@@ -22175,7 +22175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &7529980244453509996
 GameObject:
   m_ObjectHideFlags: 0

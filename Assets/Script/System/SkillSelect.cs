@@ -10,6 +10,8 @@ public class SkillSelect : MonoBehaviour
     [SerializeField] GameObject levelUp;
     [SerializeField] List<GameObject> _selectList;//オブジェクト
     List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();//スキル内容
+    [SerializeField]
+private SkillDataBase itemDataBase;
     List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();//スキルテキスト
 
     bool _isLevelUp=false;
