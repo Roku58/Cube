@@ -69,7 +69,7 @@ public class Enemy : MonoBehaviour, IObjectPool
         {
             //var go = Instantiate(_expObj, transform.position, Quaternion.identity);
             //go.AddEXP = _dropEXPValue;
-            Destroy(gameObject);
+            Deth();
         }
     }
 

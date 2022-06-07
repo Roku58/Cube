@@ -26,7 +26,7 @@ public class EnemyGenerator1 : MonoBehaviour
 
     GameObject player;
     float _timer = 0.0f;
-    float _cRad = 0.0f;
+    [SerializeField] float _cRad = 0.0f;
     Vector3 _popPos = new Vector3(0, 0, 0);
     EnemyPools<Enemy> _enemyPool = new EnemyPools<Enemy>();
 
@@ -53,7 +53,17 @@ public class EnemyGenerator1 : MonoBehaviour
 
     void Spawn()
     {
+        if (!player)
+        {
+            return;
+        }
+
         var script = _enemyPool.Instantiate();
+        if (!script)
+        {
+            return;
+        }
+
         /*
         var go = GameObject.Instantiate(_prefab);
         var script = go.GetComponent<Enemy>();
@@ -64,21 +74,21 @@ public class EnemyGenerator1 : MonoBehaviour
         _cRad += 0.1f;
     }
 
-    void RandomSpawn()
-    {
-        int choosedIndex = Random.Range(0, enemyPrefabs.Length);
-        int enemyvolume = Random.Range(1, 30);
-        for (var i = 0; i < enemyvolume; i++)
-        {
-            float diffPositionX = Random.Range(minPositionX, maxPositonX);
-            float diffPositionZ = Random.Range(minPositionZ, maxPositonZ);
-            float RotationY = Random.Range(0, 360);
-            float RotationZ = Random.Range(0, 360);
-            Vector3 position = new Vector3(transform.position.x + diffPositionX, transform.position.y, transform.position.z + diffPositionZ);
-            Vector3 rotation = new Vector3(transform.rotation.y + RotationY, transform.rotation.z + RotationZ);
-            //, transform.rotation.y + RotationY, transform.rotation.z + RotationZ
+    //void RandomSpawn()
+    //{
+    //    int choosedIndex = Random.Range(0, enemyPrefabs.Length);
+    //    int enemyvolume = Random.Range(1, 30);
+    //    for (var i = 0; i < enemyvolume; i++)
+    //    {
+    //        float diffPositionX = Random.Range(minPositionX, maxPositonX);
+    //        float diffPositionZ = Random.Range(minPositionZ, maxPositonZ);
+    //        float RotationY = Random.Range(0, 360);
+    //        float RotationZ = Random.Range(0, 360);
+    //        Vector3 position = new Vector3(transform.position.x + diffPositionX, transform.position.y, transform.position.z + diffPositionZ);
+    //        Vector3 rotation = new Vector3(transform.rotation.y + RotationY, transform.rotation.z + RotationZ);
+    //        //, transform.rotation.y + RotationY, transform.rotation.z + RotationZ
 
-            Instantiate(enemyPrefabs[choosedIndex], position, Quaternion.Euler(rotation));
-        }
-    }
+    //        Instantiate(enemyPrefabs[choosedIndex], position, Quaternion.Euler(rotation));
+    //    }
+    //}
 }
