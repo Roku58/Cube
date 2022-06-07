@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeponsManager : MonoBehaviour
 {
     [SerializeField] GameObject[] wepons;
+    [SerializeField] GameObject[] weponLevel;
 
     void Start()
     {
