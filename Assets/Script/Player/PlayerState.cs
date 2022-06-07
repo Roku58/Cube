@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using DG.Tweening;
 public class PlayerState : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class PlayerState : MonoBehaviour
     bool _isLevelUp = false;
     public bool IsLevelUp => _isLevelUp;
 
-    [SerializeField]List<SkillManager> _skill = new List<SkillManager>();
+    [SerializeField]List<Skill> _skill = new List<Skill>();
 
     void Start()
     {
@@ -74,10 +75,23 @@ public class PlayerState : MonoBehaviour
         Debug.Log("ŽŸ‚ÌƒŒƒxƒ‹‚Ü‚Å" + _expPool + " •K—v");
     }
 
-    public void AddSkill(int id)
+    public void AddSkill(int skillId)
     {
-        //_skill.Add((SkillID)id);
-        //SkillManager.Instance.AddSkill(id);
+        var having = _skill.Where(s => s.skillId == skillId);
+        if (having.Count() > 0)
+        {
+            having.Single().LevelUp();
+        }
+        else
+        {
+            Skill newSkill = null;
+
+            if (newSkill != null)
+            {
+                newSkill.SetUp();
+                _skill.Add(newSkill);
+            }
+        }
     }
 
     public void GetItem(int exp ,int sp , int hp)

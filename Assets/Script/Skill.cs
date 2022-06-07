@@ -10,18 +10,19 @@ public class Skill: ScriptableObject
 {
     [SerializeField]public enum SkillType
     {
+        //攻撃スキル
         Wepon,
+        //パッシブスキル
         Passive
     }
 
     [SerializeField] SkillType skillType = SkillType.Wepon;
     [SerializeField] string itemName; // アイテムの名前
     [SerializeField] public　int skillId;//スキルID
-    [SerializeField] public int skillLevel;//スキルレベル
-    [SerializeField] public int maxskillLevel;//スキルレベル
+    public int skillLevel;//スキルレベル
+    [SerializeField] public int maxskillLevel;//スキル最大レベル
     [SerializeField] float cooltime;//クールタイム
     [SerializeField] int atk;//攻撃力
-    [SerializeField] float speed;//速さ
 
     [SerializeField] Sprite icon; // アイテムの画像
     [SerializeField] bool isCombinable; // 合体できるかどうか
@@ -77,11 +78,11 @@ public class Skill: ScriptableObject
         return prefab;
     }
 
-    public void SetUp()
+    public void SetUp()//レベルが０の時
     {
         skillLevel = 1;
     }
-    public void LevelUp()
+    public void LevelUp()//レベル追加
     {
         if (skillLevel <= maxskillLevel)
         {
