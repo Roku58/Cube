@@ -3790,9 +3790,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6416013434778900551}
   - component: {fileID: 6809718908702100897}
+  - component: {fileID: 404962326644084951}
+  - component: {fileID: 3657170359277374585}
+  - component: {fileID: 4829814948276771908}
   m_Layer: 0
-  m_Name: doragon2
-  m_TagString: Untagged
+  m_Name: Doragon
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3806,7 +3809,7 @@ Transform:
   m_GameObject: {fileID: 5927179753991766781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8091227559361964088}
@@ -3847,6 +3850,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &404962326644084951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927179753991766781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6769ac0a604e5b949945f96e1b9cdaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  hp: 100
+  atk: 1
+  speed: 4
+  bullet: {fileID: 0}
+  death:
+  - {fileID: 6458697665034233664, guid: 0b4cc81dc67503a458c129813367240e, type: 3}
+  - {fileID: 6458697665034233664, guid: 45aae40c8e371b64183c73f422828662, type: 3}
+  hitef: {fileID: 0}
+  muzzle: {fileID: 0}
+--- !u!136 &3657170359277374585
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927179753991766781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2182999
+  m_Height: 8.112687
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.67604685, z: 1.73}
+--- !u!54 &4829814948276771908
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927179753991766781}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &5994215238896811142
 GameObject:
   m_ObjectHideFlags: 0

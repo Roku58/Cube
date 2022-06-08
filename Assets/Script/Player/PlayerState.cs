@@ -44,6 +44,8 @@ public class PlayerState : MonoBehaviour
         {
             _life = _maxLife;
         }
+
+        xxx();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -73,6 +75,18 @@ public class PlayerState : MonoBehaviour
         _level ++;
         Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");
+    }
+
+    void xxx()
+    {
+        if (_sp >= _maxSp)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                _sp = 0;
+                Debug.Log("必殺技");
+            }
+        }
     }
 
     public void AddSkill(int skillId)

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IObjectPool
 {
-    [SerializeField] float _speed = 10;
-    SpriteRenderer _image;
-
     [SerializeField, Tooltip(""), Min(0)] int maxHp = 100;
     [SerializeField, Tooltip(""), Min(0)] int hp = 100;
     [SerializeField, Tooltip(""), Min(0)] int atk = 1;
@@ -37,8 +34,8 @@ public class Enemy : MonoBehaviour, IObjectPool
 
     void Move()
     {
-        if (!IsActive) return;
-
+        //if (!IsActive) return;
+        transform.LookAt(player.transform);
         Vector3 sub = player.transform.position - transform.position;
         sub.Normalize();
 
@@ -90,7 +87,10 @@ public class Enemy : MonoBehaviour, IObjectPool
     {
         var x = Random.Range(0, death.Length);
         gameObject.SetActive(false);
-        Instantiate(death[x], this.transform.position, Quaternion.identity);
+        if (!death[x])
+        {
+            Instantiate(death[x], this.transform.position, Quaternion.identity);
+        }
         //if (death.transform.parent != null)
         //{
         //    death.SetActive(true);

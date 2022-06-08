@@ -10,7 +10,7 @@ public class EnemyGenerator1 : MonoBehaviour
 {
     [SerializeField, Tooltip(""), Min(0)] float _time = 0.05f;
     [SerializeField, Tooltip(""), Min(0)] int _poolsizu = 100;
-    [SerializeField, Tooltip("")] Enemy _prefab = null;
+    [SerializeField, Tooltip("")] Enemy[] _prefab = null;
     [SerializeField, Tooltip("")] Transform _root = null;
 
     public bool spawnEnabled = false;//ÉXÉ|Å[ÉìON OFF
@@ -21,7 +21,7 @@ public class EnemyGenerator1 : MonoBehaviour
     [SerializeField] float maxPositonZ = 10;//
     [SerializeField] float minSpawnInterval = 1;//
     [SerializeField] float maxSpawnInterval = 5;//
-    [SerializeField] GameObject[] enemyPrefabs;//
+    //[SerializeField] GameObject[] enemyPrefabs;//
     bool spawning = false;
 
     GameObject player;
@@ -33,7 +33,8 @@ public class EnemyGenerator1 : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        _enemyPool.SetBaseObj(_prefab, _root);
+        var x = Random.Range(0, _prefab.Length );
+        _enemyPool.SetBaseObj(_prefab[x], _root);
         _enemyPool.SetCapacity(_poolsizu);
 
         //GameManager.Instance.Setup();
