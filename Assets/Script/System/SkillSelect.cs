@@ -1,113 +1,95 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
-//public class SkillSelect : MonoBehaviour
-//{
+public class SkillSelect : MonoBehaviour
+{
+    [SerializeField] List<GameObject> _selectList;
 
-//    [SerializeField] PlayerState player;
-//    [SerializeField] GameObject levelUp;
-//    [SerializeField] List<GameObject> _selectList;//オブジェクト
-//    List<Skill> _selectTable = new List<Skill>();//スキル内容
-//    [SerializeField] private SkillDataBase itemDataBase;
-//    List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();//スキルテキスト
+    List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();
+    List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();
+    CanvasGroup _canvas;
 
-//    bool _isLevelUp=false;
-//    void Start()
-//    {
-//        //設定したリストの数だけ回す
-//        for (int i = 0; i < _selectList.Count; ++i)
-//        {
-//            //最初は何も入れない
-//            //_selectTable.Add(null);
+    public bool _isSelect { get; private set; } = false;
 
-//            //子要素のテキストを取得し、リストに追加
-//            _selectText.Add(_selectList[i].GetComponentInChildren<UnityEngine.UI.Text>());
-//            {
-//                //現在のセレクト
-//                var index = i;
-//                //さらに子要素（孫）のボタンを取得、リストに追加
-//                var btn = _selectList[i].GetComponentInChildren<UnityEngine.UI.Button>();
-//                //↑で取得したボタンにAddListener()でスクリプトからイベント追加
-//                btn.onClick.AddListener(() =>
-//                {
+    bool _startEvent = false;
 
-//                    //if (_canvas.alpha == 0) return;
-//                    //追加する関数
-//                    OnClick(index);
-//                });
-//            }
-//        }
-//    }
+    private void Awake()
+    {
+        _canvas = GetComponent<CanvasGroup>();
+    }
 
-//    // Update is called once per frame
-//    void Update()
-//    {
-//       _isLevelUp = player.IsLevelUp;
-//        if(_isLevelUp)
-//        {
-//            SelectStart();
-//        }
-//    }
+    void Start()
+    {
+        for (int i = 0; i < _selectList.Count; ++i)
+        {
+            _selectTable.Add(null);
+            _selectText.Add(_selectList[i].GetComponentInChildren<UnityEngine.UI.Text>());
+            {
+                var index = i;
+                var btn = _selectList[i].GetComponentInChildren<UnityEngine.UI.Button>();
+                btn.onClick.AddListener(() =>
+                {
+                    if (_canvas.alpha == 0) return;
+                    OnClick(index);
+                });
+            }
+        }
+    }
 
-//    public void SelectStart()
-//    {
-//        levelUp.SetActive(true);
-//        //リスト宣言
-//        List<Skill> table = new List<Skill>();
+    private void Update()
+    {
+        if (_startEvent)
+        {
+            SelectStart();
+            _startEvent = false;
+        }
+    }
 
-//        var list = SkillDataBase.skillLists.Where(s => player.Level >= s.skillLevel);
+    public void SelectStartDelay()
+    {
+        _startEvent = true;
+    }
 
-//        int totalProb = list.Sum(s => s.Probability);
+    public void SelectStart()
+    {
+        _isSelect = true;
+        _canvas.alpha = 1;
 
-//        int rand = Random.Range(0, totalProb);
-//        //
-//        for (int i = 0; i < _selectList.Count; ++i)
-//        {
-//            //_selectTable[i] = null;
-//            _selectText[i].text = "";
-//        }
-//        //
-//        for (int i = 0; i < _selectList.Count; ++i)
-//        {
-//            foreach (var s in list)
-//            {
-//                if (rand < s.Probability)
-//                {
-//                    _selectTable[i] = s;
-//                    _selectText[i].text = s.Name;
-//                    list = list.Where(ls => !(ls.Type == s.Type && ls.TargetId == s.TargetId));
-//                    break;
-//                }
-//                rand -= s.Probability;
-//            }
-//        }
-//    }
+        List<SkillSelectTable> table = new List<SkillSelectTable>();
+        var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
 
-//    public void OnClick(int index)
-//    {
-//        //GameManager.Instance.LevelUpSelect(_selectTable[index]);
-//        //LevelUpSelect(_selectTable[index])
-//        //levelUp.SetActive(false);
-//        _isLevelUp = false;
-//    }
+        int totalProb = list.Sum(s => s.Probability);
+        int rand = Random.Range(0, totalProb);
 
-//    //public void LevelUpSelect(SkillSelectTable table)
-//    //{
-//    //    switch (table.Type)
-//    //    {
-//    //        case SelectType.Skill:
-//    //            _player.AddSkill(table.TargetId);
-//    //            break;
+        for (int i = 0; i < _selectList.Count; ++i)
+        {
+            _selectTable[i] = null;
+            _selectText[i].text = "";
+        }
 
-//    //        case SelectType.Passive:
-//    //            _passive.Add(table.TargetId);
-//    //            break;
+        for (int i = 0; i < _selectList.Count; ++i)
+        {
+            foreach (var s in list)
+            {
+                if (rand < s.Probability)
+                {
+                    _selectTable[i] = s;
+                    _selectText[i].text = s.Name;
+                    list = list.Where(ls => !(ls.Type == s.Type && ls.TargetId == s.TargetId));
+                    break;
+                }
+                rand -= s.Probability;
+            }
+        }
+    }
 
-//    //        case SelectType.Execute:
-//    //            //TODO:
-//    //            break;
-//    //    }
-//    //}
-//}
+    public void OnClick(int index)
+    {
+        //GameManager.Instance.LevelUpSelect(_selectTable[index]);
+        //_isSelect = false;
+        //GameManager.Instance.IsPause();
+        //_canvas.alpha = 0;
+    }
+}

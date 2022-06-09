@@ -5,7 +5,7 @@ public enum SelectType //スキルタイプ
 {
     Skill = 1,
     Passive = 2,
-   // Execute = 3,
+    Execute = 3,
 }
 
 //[Serializable]
