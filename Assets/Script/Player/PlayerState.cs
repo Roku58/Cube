@@ -77,7 +77,7 @@ public class PlayerState : MonoBehaviour
         Debug.Log("ŽŸ‚ÌƒŒƒxƒ‹‚Ü‚Å" + _expPool + " •K—v");
     }
 
-    void xxx()
+    void xxx()//•KŽE‹Z
     {
         if (_sp >= _maxSp)
         {
