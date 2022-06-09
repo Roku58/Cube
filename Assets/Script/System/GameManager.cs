@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
+	static private GameManager _instance = new GameManager();
+	static public GameManager Instance => _instance;
+	private GameManager() { }
+
 	[SerializeField] PlayerState player;
 	[SerializeField] Text timerText;
 	[SerializeField] Text _deathText;
@@ -16,6 +20,13 @@ public class GameManager : MonoBehaviour
 	bool _isDeath = false;
 	float _deathTime = 0;
 
+	int _level = 0;
+	static public int Level => _instance._level;
+	int _stackLevelup = 0;
+	List<int> _passive = new List<int>();
+
+	PlayerState _player;
+	SkillSelect _sklSelect = null;
 
 	private float second;
 	private int minute;
@@ -34,11 +45,37 @@ public class GameManager : MonoBehaviour
 		if (_isDeath)
         {
 			PlayerDeath();
-
 		}
 
 	}
 
+	public void LevelUpSelect(SkillSelectTable table)
+	{
+		switch (table.Type)
+		{
+			case SelectType.Skill:
+				_player.AddSkill(table.TargetId);
+				break;
+
+			case SelectType.Passive:
+				_passive.Add(table.TargetId);
+				break;
+
+			case SelectType.Execute:
+				//TODO:
+				break;
+		}
+
+		if (_stackLevelup > 0)
+		{
+			_sklSelect.SelectStartDelay();
+			_stackLevelup--;
+		}
+		else
+		{
+			Time.timeScale = 1;
+		}
+	}
 
 	void Timer()
     {
