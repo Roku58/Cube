@@ -132,6 +132,6 @@ public class GameManager : MonoBehaviour
 
 	public void OnClick()
 	{
-		//SceneManager.LoadScene("Titole");
-	}
+        //SceneManager.LoadScene("Titole");
+    }
 }

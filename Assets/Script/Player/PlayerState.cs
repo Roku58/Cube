@@ -5,7 +5,7 @@ using System.Linq;
 using DG.Tweening;
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField, Tooltip("現在レベル"), Min(0)]  int _level = 1;
+    [SerializeField, Tooltip("現在レベル"), Min(0)]  int _level = 0;
     public int Level => _level;
     [SerializeField, Tooltip("現在経験値"), Min(0)]  int _exp = 0;
     public int Exp => _exp;
@@ -29,7 +29,9 @@ public class PlayerState : MonoBehaviour
     bool _isLevelUp = false;
     public bool IsLevelUp => _isLevelUp;
 
-    [SerializeField]List<Skill> _skill = new List<Skill>();
+    //[SerializeField]List<Skill> _skill = new List<Skill>();
+    [SerializeField] List<GameObject> _skills = new List<GameObject>();
+    SkillSelect _sklSelect = null;
 
     void Start()
     {
@@ -72,6 +74,7 @@ public class PlayerState : MonoBehaviour
         _maxLife += _level * 5;
         _life = _maxLife;
         _expPool += _level * 10;
+        _sklSelect.SelectStart();
         _level ++;
         Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");
@@ -91,19 +94,31 @@ public class PlayerState : MonoBehaviour
 
     public void AddSkill(int skillId)
     {
-        var having = _skill.Where(s => s.skillId == skillId);
+        var having = _skills.Where(s => s.GetComponent<ISkill>().SkillId == (SkillDef)skillId);
         if (having.Count() > 0)
         {
-            having.Single().LevelUp();
+            having.Single().GetComponent<ISkill>().LevelUp();
         }
         else
         {
-            Skill newSkill = null;
-
-            if (newSkill != null)
+            GameObject newskill = null;
+            switch ((SkillDef)skillId)
             {
-                newSkill.SetUp();
-                _skill.Add(newSkill);
+                case SkillDef.MeleeWeapon:
+                    newskill = Instantiate(Resources.Load<GameObject>("Skills/Whips"), transform.position, Quaternion.identity);
+                    break;
+
+                case SkillDef.ShotBullet:
+                    break;
+
+                case SkillDef.AreaAttack:
+                    break;
+            }
+
+            if (newskill != null)
+            {
+                newskill.GetComponent<ISkill>().SetUp();
+                _skills.Add(newskill);
             }
         }
     }
@@ -123,7 +138,7 @@ public class PlayerState : MonoBehaviour
         //DamageEf();
         StartCoroutine("DamageEf");
         _life -= damage;
-        Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");
+        //Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");
         //_damageEf.GetComponent<GlitchFx>().enabled = false;
     }
 

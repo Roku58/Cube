@@ -5,7 +5,8 @@ public interface ISkill
 
     /// <summary>スキルのタイプ</summary>
     SkillType Type { get; }
-    
+    SkillDef SkillId { get; }
+
 
     /// <summary>スキルのレベルが最大かどうか</summary>
     bool IsLevelMax { get; }
@@ -34,4 +35,12 @@ public enum SkillType
 {
     Active = 0,
     Passive = 1,
+}
+
+public enum SkillDef
+{
+    Invalid = 0,
+    MeleeWeapon = 1,
+    ShotBullet = 2,
+    AreaAttack = 3,
 }

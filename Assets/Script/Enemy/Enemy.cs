@@ -87,10 +87,11 @@ public class Enemy : MonoBehaviour, IObjectPool
     {
         var x = Random.Range(0, death.Length);
         gameObject.SetActive(false);
-        if (!death[x])
-        {
-            Instantiate(death[x], this.transform.position, Quaternion.identity);
-        }
+        //if (!death[x])
+        //{
+        //    Instantiate(death[x], this.transform.position, Quaternion.identity);
+        //}
+        Instantiate(death[1], this.transform.position, Quaternion.identity);
         //if (death.transform.parent != null)
         //{
         //    death.SetActive(true);

@@ -6,7 +6,7 @@ using UnityEngine;
 public class SkillSelect : MonoBehaviour
 {
     [SerializeField] List<GameObject> _selectList;
-
+    PlayerState _player;
     List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();
     List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();
     CanvasGroup _canvas;
@@ -56,9 +56,9 @@ public class SkillSelect : MonoBehaviour
     {
         _isSelect = true;
         _canvas.alpha = 1;
-
+        Debug.Log("SelectStart");
         List<SkillSelectTable> table = new List<SkillSelectTable>();
-        var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
+        var list = GameData.SkillSelectTable.Where(s => _player.Level >= s.Level);
 
         int totalProb = list.Sum(s => s.Probability);
         int rand = Random.Range(0, totalProb);
