@@ -127,11 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6769ac0a604e5b949945f96e1b9cdaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
   maxHp: 100
   hp: 100
   atk: 1
-  speed: 5
+  speed: 50
   bullet: {fileID: 6458697665034233664, guid: 0b4cc81dc67503a458c129813367240e, type: 3}
   death:
   - {fileID: 6458697665034233664, guid: d57494ef0c0770041b1cbdffcac4f3dd, type: 3}

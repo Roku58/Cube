@@ -31,7 +31,7 @@ public class PlayerState : MonoBehaviour
 
     //[SerializeField]List<Skill> _skill = new List<Skill>();
     [SerializeField] List<GameObject> _skills = new List<GameObject>();
-    SkillSelect _sklSelect = null;
+    [SerializeField] SkillSelect _skllSelect = null;
 
     void Start()
     {
@@ -74,7 +74,7 @@ public class PlayerState : MonoBehaviour
         _maxLife += _level * 5;
         _life = _maxLife;
         _expPool += _level * 10;
-        _sklSelect.SelectStart();
+        _skllSelect.SelectStart();
         _level ++;
         Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");
