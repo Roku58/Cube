@@ -5,11 +5,16 @@ using UnityEngine;
 public class WeaponsManager : MonoBehaviour
 {
     public WeaponLeve[] weapons;
+    public Animator[] animators;
     float _timer;
 
     private void Start()
     {
-        
+        //for (int i = 0; i < weapons.Length; i++)
+        //{
+        //    animators = weapons[i].GetComponent<Animator>
+        //}
+
     }
 
     private void Update()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7183050848635358281}
   m_Layer: 0
   m_Name: Spear1
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,9 +42,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8296137353536542467}
   - component: {fileID: 81067427886971028}
+  - component: {fileID: 429865883990116161}
   m_Layer: 0
   m_Name: Spears
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,6 +89,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &429865883990116161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144095239182266154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d853a0a1779e94caea1379c107ee4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &5174138613828859093
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +113,7 @@ GameObject:
   - component: {fileID: 6252479848220295966}
   m_Layer: 0
   m_Name: Spear2
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +145,7 @@ GameObject:
   - component: {fileID: 5690629892258281998}
   m_Layer: 0
   m_Name: Spear3
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +177,7 @@ GameObject:
   - component: {fileID: 3704551480348569560}
   m_Layer: 0
   m_Name: Spear4
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,6 +525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scythes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 5203399458384043002, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -773,6 +791,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+--- !u!1 &4717115942623993787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+  m_PrefabInstance: {fileID: 568233062337194683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2964469402337258272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4717115942623993787}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.32, z: -0}
 --- !u!4 &5349536770505508097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5611374824315334586, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
@@ -1105,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scythes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 5203399458384043002, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1372,6 +1412,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5611374824315334586, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
   m_PrefabInstance: {fileID: 3272943773522654789}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7782112429004424005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+  m_PrefabInstance: {fileID: 3272943773522654789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6943459249393766634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782112429004424005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.32, z: -0}
 --- !u!1001 &6173255105767182919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,6 +1757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scythes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 5203399458384043002, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1961,6 +2023,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+--- !u!1 &1386974334581237575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+  m_PrefabInstance: {fileID: 6173255105767182919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3541893091675331138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386974334581237575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.32, z: -0}
 --- !u!4 &1762127240448720381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5611374824315334586, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
@@ -2293,6 +2373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scythes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 5203399458384043002, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2560,3 +2644,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5611374824315334586, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
   m_PrefabInstance: {fileID: 9218958634574370623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4135457880226767423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5085772345706214656, guid: 5d1b49ec3ddf3f44ba8b1597fad570c0, type: 3}
+  m_PrefabInstance: {fileID: 9218958634574370623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8170315774637344501
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135457880226767423}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.32, z: -0}

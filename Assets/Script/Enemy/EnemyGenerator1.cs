@@ -69,10 +69,10 @@ public class EnemyGenerator1 : MonoBehaviour
         var go = GameObject.Instantiate(_prefab);
         var script = go.GetComponent<Enemy>();
         */
-        _popPos.x = player.transform.position.x + 100 * Mathf.Cos(_cRad);
-        _popPos.z = player.transform.position.z + 100 * Mathf.Sin(_cRad);
+        _popPos.x = player.transform.position.x + 20 * Mathf.Cos(_cRad);
+        _popPos.z = player.transform.position.z + 20 * Mathf.Sin(_cRad);
         script.transform.position = _popPos;
-        _cRad += 0.1f;
+        _cRad += 1f;
     }
 
     //void RandomSpawn()

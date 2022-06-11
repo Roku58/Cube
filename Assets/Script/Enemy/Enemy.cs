@@ -49,9 +49,9 @@ public class Enemy : MonoBehaviour, IObjectPool
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Weapon")
         {
-            collision.gameObject.GetComponent<PlayerState>().GetDamage(atk);
+            //collision.gameObject.GetComponent<PlayerState>().GetDamage(atk);
             //var obj = Instantiate(death, this.transform.position, Quaternion.identity);
             Deth();
         }
