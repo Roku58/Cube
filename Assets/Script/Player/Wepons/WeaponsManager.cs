@@ -6,6 +6,7 @@ public class WeaponsManager : MonoBehaviour
 {
     public WeaponLeve[] weapons;
     public Animator[] animators;
+    [SerializeField] float _cooltime;
     float _timer;
 
     private void Start()
@@ -14,7 +15,7 @@ public class WeaponsManager : MonoBehaviour
         //{
         //    animators = weapons[i].GetComponent<Animator>
         //}
-        StartCoroutine("WeaponActive");
+
 
     }
 
@@ -22,7 +23,7 @@ public class WeaponsManager : MonoBehaviour
     {
         
         _timer += Time.deltaTime;
-        if (_timer > 3)
+        if (_timer > _cooltime)
         {
             StartCoroutine("WeaponActive");
             _timer = 0;
@@ -32,14 +33,19 @@ public class WeaponsManager : MonoBehaviour
 
     IEnumerator WeaponActive()
     {
+
         for (int i = 0; i < weapons.Length; i++)
         {
-            if (weapons[i].weaponLevelIndex > 0)
+            if(weapons[i].canAtack)
             {
-                weapons[i].weaponLevel[weapons[i].weaponLevelIndex - 1].SetActive(true);
-                yield return new WaitForSeconds(weapons[i].coolTime);
-                weapons[i].weaponLevel[weapons[i].weaponLevelIndex - 1].SetActive(false);
+                if (weapons[i].weaponLevelIndex > 0)
+                {
+                    weapons[i].weaponLevel[weapons[i].weaponLevelIndex - 1].SetActive(true);
+                    yield return new WaitForSeconds(weapons[i].waitTime);
+                    weapons[i].weaponLevel[weapons[i].weaponLevelIndex - 1].SetActive(false);
+                }
             }
+
         }
     }
 
@@ -52,5 +58,6 @@ public class WeaponLeve
     //public GameObject wepon;
     public GameObject[] weaponLevel;
     public int weaponLevelIndex;
-    public float coolTime;
+    public float waitTime;
+    public bool canAtack;
 }

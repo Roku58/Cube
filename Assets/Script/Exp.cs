@@ -35,7 +35,10 @@ public class Exp : MonoBehaviour
             collision.gameObject.GetComponent<PlayerState>().GetItem(exp,sp, hp);
             Destroy(this.gameObject);
         }
-
+        if (collision.gameObject.tag == "Weapon")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
      void Move()

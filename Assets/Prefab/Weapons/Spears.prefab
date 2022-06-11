@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8296137353536542467}
   - component: {fileID: 81067427886971028}
   - component: {fileID: 429865883990116161}
+  - component: {fileID: 289074946318530969}
   m_Layer: 8
   m_Name: Spears
   m_TagString: Weapon
@@ -102,6 +103,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!65 &289074946318530969
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144095239182266154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5174138613828859093
 GameObject:
   m_ObjectHideFlags: 0

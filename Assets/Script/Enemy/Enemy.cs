@@ -86,12 +86,11 @@ public class Enemy : MonoBehaviour, IObjectPool
     public void Deth()
     {
         var x = Random.Range(0, death.Length);
+
+        Instantiate(death[x], this.transform.position, Quaternion.identity);
+        
         gameObject.SetActive(false);
-        //if (!death[x])
-        //{
-        //    Instantiate(death[x], this.transform.position, Quaternion.identity);
-        //}
-        Instantiate(death[1], this.transform.position, Quaternion.identity);
+        //Instantiate(death[1], this.transform.position, Quaternion.identity);
         //if (death.transform.parent != null)
         //{
         //    death.SetActive(true);
