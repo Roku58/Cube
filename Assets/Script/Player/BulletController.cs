@@ -18,29 +18,21 @@ public class BulletController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<EnemyController>())
-        {
-            collision.gameObject.GetComponent<EnemyController>().GetDamage(damage);
-        }
 
         if(collision.gameObject.tag == "Enemy")
         {
-            GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
-            Destroy(effect, 1.0f);
+            collision.gameObject.GetComponent<EnemyController>().GetDamage(damage);
+
+            //GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
+            //Destroy(effect, 1.0f);
         };
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<EnemyController>())
+        if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyController>().GetDamage(damage);
         }
-
-        if(other.gameObject.tag == "Enemy")
-        {
-            GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
-            Destroy(effect, 1.0f);
-        };
     }
 }

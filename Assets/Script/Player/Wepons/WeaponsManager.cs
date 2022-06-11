@@ -36,7 +36,7 @@ public class WeaponsManager : MonoBehaviour
             if (weapons[i].weaponLevelIndex > 0)
             {
                 weapons[i].weaponLevel[weapons[i].weaponLevelIndex - 1].SetActive(true);
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(weapons[i].coolTime);
                 weapons[i].weaponLevel[weapons[i].weaponLevelIndex - 1].SetActive(false);
             }
         }
@@ -51,4 +51,5 @@ public class WeaponLeve
     //public GameObject wepon;
     public GameObject[] weaponLevel;
     public int weaponLevelIndex;
+    public float coolTime;
 }

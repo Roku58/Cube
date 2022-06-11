@@ -23,6 +23,13 @@ public class Spear : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().GetDamage(damage);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyController>().GetDamage(damage);
+        }
+    }
 
     void Daeth()
     {

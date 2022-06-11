@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spears : MonoBehaviour
 {
     [SerializeField] GameObject _spear;
+    [SerializeField] int index;
     GameObject _playerPos;
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,23 @@ public class Spears : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerPos = GameObject.FindGameObjectWithTag("Player");
-        Vector3 pos = _playerPos.transform.position;
-        pos.x += Random.Range(-10, 10);
-        pos.z += Random.Range(-10, 10);
-        Instantiate(_spear, pos, Quaternion.identity);
+        StartCoroutine("Atack");
+        
+
     }
 
+    IEnumerator Atack()
+    {
+        _playerPos = GameObject.FindGameObjectWithTag("Player");
+        Vector3 pos = _playerPos.transform.position;
+        for (int i = 0; i <= index; i++)
+        {
+            pos.x += Random.Range(-10, 10);
+            pos.z += Random.Range(-10, 10);
+            Instantiate(_spear, pos, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
     void Death()
     {
         Destroy(this);
