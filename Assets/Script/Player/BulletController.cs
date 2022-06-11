@@ -7,22 +7,39 @@ public class BulletController : MonoBehaviour
     [SerializeField] float _lifeTime = 3f;
     public int damage = 10;
     public GameObject explosionPrefab;
-    //[SerializeField] Rigidbody rb;
 
-    void Start()
+
+    private void Start()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.velocity = this.transform.forward * _speed;  // 「前」に飛ばす
-        Destroy(this.gameObject, _lifeTime);
+        Bullet();
+    }
+    void Update()
+    {
     }
 
+    void Bullet()
+    {
+        Rigidbody _rb = GetComponent<Rigidbody>();
+        Vector3 directionToTarget;
+        Destroy(this.gameObject, _lifeTime);
+        GameObject targetObject = GameObject.FindWithTag("Enemy");
+        if (targetObject)
+        {
+            directionToTarget = (targetObject.transform.position - transform.position).normalized;
+            _rb.velocity = directionToTarget * 30;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
 
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyController>().GetDamage(damage);
-
+            collision.gameObject.GetComponent<Enemy>().GetDamage(damage);
+            Destroy(this.gameObject);
             //GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
             //Destroy(effect, 1.0f);
         };
@@ -32,7 +49,7 @@ public class BulletController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyController>().GetDamage(damage);
+            other.gameObject.GetComponent<Enemy>().GetDamage(damage);
         }
     }
 }
