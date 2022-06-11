@@ -41,8 +41,16 @@ public class Exp : MonoBehaviour
         }
     }
 
-     void Move()
+    private void OnTriggerStay(Collider other)
     {
-        
+        if (other.gameObject.tag == "GetItem")
+        {
+            Move();
+        }
+    }
+
+    void Move()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.5f);
     }
 }
