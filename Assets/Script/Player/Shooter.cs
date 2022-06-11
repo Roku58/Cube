@@ -9,7 +9,12 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject targetObject = GameObject.FindWithTag("Enemy");
+        if (targetObject )
+        {
+            transform.LookAt(targetObject.transform);
+
+        }
     }
 
     // Update is called once per frame
@@ -20,6 +25,12 @@ public class Shooter : MonoBehaviour
 
     void AttackBullet()
     {
+        GameObject targetObject = GameObject.FindWithTag("Enemy");
+        if (targetObject)
+        {
+            transform.LookAt(targetObject.transform);
+        }
+
         var go = Instantiate(bullet);
         go.transform.position = muzzle.position;
         go.transform.forward = muzzle.forward;

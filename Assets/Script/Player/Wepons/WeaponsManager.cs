@@ -14,6 +14,7 @@ public class WeaponsManager : MonoBehaviour
         //{
         //    animators = weapons[i].GetComponent<Animator>
         //}
+        StartCoroutine("WeaponActive");
 
     }
 

@@ -130,7 +130,7 @@ MonoBehaviour:
   maxHp: 100
   hp: 100
   atk: 1
-  speed: 5
+  speed: 3
   bullet: {fileID: 6458697665034233664, guid: 0b4cc81dc67503a458c129813367240e, type: 3}
   death:
   - {fileID: 6458697665034233664, guid: d57494ef0c0770041b1cbdffcac4f3dd, type: 3}

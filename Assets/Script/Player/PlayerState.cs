@@ -21,6 +21,7 @@ public class PlayerState : MonoBehaviour
     public int MaxSp => _maxSp;
 
     [SerializeField] GameObject _damageEf;
+    [SerializeField] GameObject[] _exAtack;
     [SerializeField] float _damage;
 
     bool _isDeath = false;
@@ -47,7 +48,7 @@ public class PlayerState : MonoBehaviour
             _life = _maxLife;
         }
 
-        xxx();
+        ExAtack();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -74,19 +75,22 @@ public class PlayerState : MonoBehaviour
         _maxLife += _level * 5;
         _life = _maxLife;
         _expPool += _level * 10;
-        _skllSelect.SelectStart();
+        //_skllSelect.SelectStart();
         _level ++;
         Debug.Log("ƒvƒŒƒCƒ„[‚ÌƒŒƒxƒ‹‚ª" + _level + " ‚É‚È‚Á‚½I");
         Debug.Log("ŽŸ‚ÌƒŒƒxƒ‹‚Ü‚Å" + _expPool + " •K—v");
     }
 
-    void xxx()//•KŽE‹Z
+    void ExAtack()//•KŽE‹Z
     {
         if (_sp >= _maxSp)
         {
             if (Input.GetButtonDown("Fire2"))
             {
                 _sp = 0;
+                int x = (Random.Range(0, _exAtack.Length));
+                var go = Instantiate(_exAtack[x]);
+                go.transform.position = transform.position;
                 Debug.Log("•KŽE‹Z");
             }
         }
