@@ -51,15 +51,6 @@ public class PlayerState : MonoBehaviour
         ExAtack();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        //if (collision.gameObject.tag == "Exp")
-        //{
-        //    _exp += 10;
-        //    Destroy(collision.gameObject);
-        //}
-    }
-
     void LevelManagar()//ƒŒƒxƒ‹ŠÇ—
     {
         if(_exp >= _expPool)
