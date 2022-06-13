@@ -87,9 +87,9 @@ public class SkillSelect : MonoBehaviour
 
     public void OnClick(int index)
     {
-        //GameManager.Instance.LevelUpSelect(_selectTable[index]);
-        //_isSelect = false;
-        //GameManager.Instance.IsPause();
-        //_canvas.alpha = 0;
+        GameManager.Instance.LevelUpSelect(_selectTable[index]);
+        _isSelect = false;
+        GameManager.Instance.Pause();
+        _canvas.alpha = 0;
     }
 }

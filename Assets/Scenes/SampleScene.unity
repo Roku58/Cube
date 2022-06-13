@@ -13378,7 +13378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a4fb21a8ed10704f92b324d207f3967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectList: []
+  _selectList:
+  - {fileID: 1797238185495262339}
+  - {fileID: 1797238187306097125}
+  - {fileID: 1797238185844607608}
 --- !u!222 &1797238186609294043
 CanvasRenderer:
   m_ObjectHideFlags: 0

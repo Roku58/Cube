@@ -66,7 +66,7 @@ public class PlayerState : MonoBehaviour
         _maxLife += _level * 5;
         _life = _maxLife;
         _expPool += _level * 10;
-        //_skllSelect.SelectStart();
+        _skllSelect.SelectStart();
         _level ++;
         Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");

@@ -94,7 +94,10 @@ public class GameManager : MonoBehaviour
 
 		timerText.text = hour.ToString() + ":" + minute.ToString("00") + ":" + second.ToString("f2");
 	}
-	void Pause()
+
+
+
+	public void Pause()
     {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -109,6 +112,9 @@ public class GameManager : MonoBehaviour
 		{
 			Time.timeScale = 1f;
 		}
+
+		//_isPause = !_isPause;
+		//_pausePanal.SetActive(_isPause);
 
 	}
 
@@ -125,12 +131,12 @@ public class GameManager : MonoBehaviour
 
 	}
 
-	public void OnClickStartButton()
+	public void OnClickStartButton(string st)
 	{
-		//SceneManager.LoadScene("GAME");
-	}
+        //SceneManager.LoadScene("GAME");
+    }
 
-	public void OnClick()
+	public void OnClick(string st)
 	{
         //SceneManager.LoadScene("Titole");
     }
