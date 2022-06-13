@@ -102,7 +102,6 @@ public class PlayerState : MonoBehaviour
             switch ((SkillDef)skillId)
             {
                 case SkillDef.MeleeWeapon:
-                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Whips"), transform.position, Quaternion.identity);
                     break;
 
                 case SkillDef.ShotBullet:

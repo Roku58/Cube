@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class GameManager : MonoBehaviour
+
+public class GameManager :MonoBehaviour
 {
 	static private GameManager _instance = new GameManager();
 	static public GameManager Instance => _instance;
@@ -133,7 +134,8 @@ public class GameManager : MonoBehaviour
 
 	public void OnClickStartButton(string st)
 	{
-        //SceneManager.LoadScene(st);
+        //SceneManager.LoadScene();
+
     }
 
 	public void OnClick(string st)

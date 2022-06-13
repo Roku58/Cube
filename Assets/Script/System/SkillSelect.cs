@@ -18,6 +18,7 @@ public class SkillSelect : MonoBehaviour
     private void Awake()
     {
         _canvas = GetComponent<CanvasGroup>();
+        _player = GetComponent<PlayerState>();
     }
 
     void Start()
@@ -54,6 +55,7 @@ public class SkillSelect : MonoBehaviour
 
     public void SelectStart()
     {
+        _player = GetComponent<PlayerState>();
         _isSelect = true;
         _canvas.alpha = 1;
         Debug.Log("SelectStart");
