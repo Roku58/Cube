@@ -133,11 +133,11 @@ public class GameManager : MonoBehaviour
 
 	public void OnClickStartButton(string st)
 	{
-        //SceneManager.LoadScene("GAME");
+        //SceneManager.LoadScene(st);
     }
 
 	public void OnClick(string st)
 	{
-        //SceneManager.LoadScene("Titole");
-    }
+		//SceneManager.LoadScene(st);
+	}
 }

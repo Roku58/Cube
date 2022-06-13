@@ -61,6 +61,8 @@ public class PlayerState : MonoBehaviour
 
     void LevelUp()//ƒŒƒxƒ‹‚ªã‚ª‚Á‚½Û‚Ìˆ—
     {
+        Time.timeScale = 0;
+
         _exp = 0;
         _isLevelUp = true;
         _maxLife += _level * 5;
