@@ -22,7 +22,7 @@ public class PlayerState : MonoBehaviour
     public bool IsDeath => _isDeath;
 
     bool _isLevelUp = false;
-    public bool IsLevelUp => _isLevelUp;
+    //public bool IsLevelUp => _isLevelUp;
 
     //[SerializeField]List<Skill> _skill = new List<Skill>();
     [SerializeField] List<GameObject> _skills = new List<GameObject>();

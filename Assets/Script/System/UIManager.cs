@@ -22,13 +22,13 @@ public class UIManager : MonoBehaviour
     int _sp;
     void Start()
     {
-        playerLevel = player.Level;
+        playerLevel = GameManager.Level;
         maxHp = player.MaxLife;
-        maxExp = player.ExpPool;
+        maxExp = GameManager.Instance.ExpPool;
         _maxSp = player.MaxSp;
         _sp = player.Sp;
         hp = player.Life;
-        exp = player.Exp;
+        exp = GameManager.Instance.Exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;
@@ -43,13 +43,13 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        playerLevel = player.Level;
+        playerLevel = GameManager.Level;
         maxHp = player.MaxLife;
-        maxExp = player.ExpPool;
+        maxExp = GameManager.Instance.ExpPool;
         _maxSp = player.MaxSp;
         _sp = player.Sp;
         hp = player.Life;
-        exp = player.Exp;
+        exp = GameManager.Instance.Exp;
 
         //スライダーの最大値の設定
         lifeber.maxValue = maxHp;

@@ -27,9 +27,9 @@ public class GameManager :MonoBehaviour
 	[SerializeField] GameObject gameOverUI;
 	[SerializeField] SkillSelect _skllSelect = null;
 
-	bool _levelEvent = false;
+	//bool _levelEvent = false;
 	bool _isDeath = false;
-	float _deathTime = 0;
+	//float _deathTime = 0;
 
 
 	int _stackLevelup = 0;
@@ -46,8 +46,8 @@ public class GameManager :MonoBehaviour
 
 	private void Start()
     {
-		second = 0;
-	}
+        second = 0;
+    }
 
     void Update()
 	{
