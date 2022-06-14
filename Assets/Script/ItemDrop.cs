@@ -11,12 +11,12 @@ public class ItemDrop : MonoBehaviour
 
     void Start()
     {
-        for(var i = 0; i < _prefab.Length; i++)
-        {
-            _itemPool.SetBaseObj(_prefab[i], _root);
-            _itemPool.SetCapacity(_prefabCapacity / _prefab.Length);
-        }
-
+        //for(var i = 0; i < _prefab.Length; i++)
+        //{
+         
+        //}
+        _itemPool.SetBaseObj(_prefab[0], _root);
+        _itemPool.SetCapacity(_prefabCapacity );
     }
 
     public Item Spawn()

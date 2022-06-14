@@ -54,6 +54,7 @@ public class GameManager :MonoBehaviour
 		_isDeath = player.IsDeath;
 		Pause();
 		Timer();
+		LevelManagar();
 		if (_isDeath)
         {
 			PlayerDeath();
@@ -93,6 +94,7 @@ public class GameManager :MonoBehaviour
 	{
 		_exp += addexp;
 	}
+
 	void LevelUp()//ƒŒƒxƒ‹‚ªã‚ª‚Á‚½Û‚Ìˆ—
 	{
 		Time.timeScale = 0;

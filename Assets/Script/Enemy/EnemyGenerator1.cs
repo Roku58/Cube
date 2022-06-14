@@ -13,14 +13,14 @@ public class EnemyGenerator1 : MonoBehaviour
     [SerializeField, Tooltip("")] Enemy[] _prefab = null;
     [SerializeField, Tooltip("")] Transform _root = null;
 
-    public bool spawnEnabled = false;//スポーンON OFF
-    [SerializeField] int maxEnemies = 1000;//最大数
-    [SerializeField] float minPositionX = -10;//
-    [SerializeField] float maxPositonX = 10;//
-    [SerializeField] float minPositionZ = -10;//
-    [SerializeField] float maxPositonZ = 10;//
-    [SerializeField] float minSpawnInterval = 1;//
-    [SerializeField] float maxSpawnInterval = 5;//
+    //public bool spawnEnabled = false;//スポーンON OFF
+    //[SerializeField] int maxEnemies = 1000;//最大数
+    //[SerializeField] float minPositionX = -10;//
+    //[SerializeField] float maxPositonX = 10;//
+    //[SerializeField] float minPositionZ = -10;//
+    //[SerializeField] float maxPositonZ = 10;//
+    //[SerializeField] float minSpawnInterval = 1;//
+    //[SerializeField] float maxSpawnInterval = 5;//
     //[SerializeField] GameObject[] enemyPrefabs;//
     bool spawning = false;
 
@@ -34,6 +34,7 @@ public class EnemyGenerator1 : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         var x = Random.Range(0, _prefab.Length );
+
         _enemyPool.SetBaseObj(_prefab[x], _root);
         _enemyPool.SetCapacity(_poolsizu);
 
