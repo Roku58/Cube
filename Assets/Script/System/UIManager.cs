@@ -22,44 +22,50 @@ public class UIManager : MonoBehaviour
     int _sp;
     void Start()
     {
-        playerLevel = GameManager.Level;
-        maxHp = player.MaxLife;
-        maxExp = GameManager.Instance.ExpPool;
-        _maxSp = player.MaxSp;
-        _sp = player.Sp;
-        hp = player.Life;
-        exp = GameManager.Instance.Exp;
+        if(player)
+        {
+            playerLevel = GameManager.Level;
+            maxHp = player.MaxLife;
+            maxExp = GameManager.Instance.ExpPool;
+            _maxSp = player.MaxSp;
+            _sp = player.Sp;
+            hp = player.Life;
+            exp = GameManager.Instance.Exp;
 
-        //スライダーの最大値の設定
-        lifeber.maxValue = maxHp;
-        expber.maxValue = maxExp;
-        spber.maxValue = _maxSp;
-        //スライダーの現在値の設定
-        lifeber.value = hp;
-        expber.value = exp;
-        spber.value = _sp;
+            //スライダーの最大値の設定
+            lifeber.maxValue = maxHp;
+            expber.maxValue = maxExp;
+            spber.maxValue = _maxSp;
+            //スライダーの現在値の設定
+            lifeber.value = hp;
+            expber.value = exp;
+            spber.value = _sp;
+        } 
     }
 
 
     void Update()
     {
-        playerLevel = GameManager.Level;
-        maxHp = player.MaxLife;
-        maxExp = GameManager.Instance.ExpPool;
-        _maxSp = player.MaxSp;
-        _sp = player.Sp;
-        hp = player.Life;
-        exp = GameManager.Instance.Exp;
+        if(player)
+        {
+            playerLevel = GameManager.Level;
+            maxHp = player.MaxLife;
+            maxExp = GameManager.Instance.ExpPool;
+            _maxSp = player.MaxSp;
+            _sp = player.Sp;
+            hp = player.Life;
+            exp = GameManager.Instance.Exp;
 
-        //スライダーの最大値の設定
-        lifeber.maxValue = maxHp;
-        expber.maxValue = maxExp;
+            //スライダーの最大値の設定
+            lifeber.maxValue = maxHp;
+            expber.maxValue = maxExp;
 
-        //スライダーの現在値の設定
-        lifeber.value = hp;
-        expber.value = exp;
-        spber.value = _sp;
-        level.text = "LEVEL:" + playerLevel;
-        life.text = "LIFE:" + hp + "/" + maxHp;
+            //スライダーの現在値の設定
+            lifeber.value = hp;
+            expber.value = exp;
+            spber.value = _sp;
+            level.text = "LEVEL:" + playerLevel;
+            life.text = "LIFE:" + hp + "/" + maxHp;
+        } 
     }
 }

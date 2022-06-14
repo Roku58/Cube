@@ -90,6 +90,14 @@ public class GameManager :MonoBehaviour
 		}
 	}
 
+	void LevelManagar()//レベル管理
+	{
+		if (_exp >= _expPool)
+		{
+			LevelUp();
+		}
+	}
+
 	public void AddExp(int addexp)
 	{
 		_exp += addexp;
@@ -97,7 +105,7 @@ public class GameManager :MonoBehaviour
 
 	void LevelUp()//レベルが上がった際の処理
 	{
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 
 		_exp = 0;
 		//_isLevelUp = true;
@@ -108,13 +116,7 @@ public class GameManager :MonoBehaviour
 		Debug.Log("プレイヤーのレベルが" + _level + " になった！");
 		Debug.Log("次のレベルまで" + _expPool + " 必要");
 	}
-	void LevelManagar()//レベル管理
-	{
-		if (_exp >= _expPool)
-		{
-			LevelUp();
-		}
-	}
+
 	void Timer()
     {
 		second += Time.deltaTime;
