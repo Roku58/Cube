@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IObjectPool
+public class Enemy : MonoBehaviour, IObjectPool , IPause
 {
     [SerializeField, Tooltip(""), Min(0)] int maxHp = 100;
     [SerializeField, Tooltip(""), Min(0)] int hp = 100;
@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour, IObjectPool
     [SerializeField, Tooltip("")] GameObject[] death; //死体
     [SerializeField, Tooltip("")] GameObject hitef; //ヒットエフェクト
     [SerializeField, Tooltip("")] Transform muzzle; //マズル
+    ItemDrop _itemDrop;
     Animator _anim = default;
     Rigidbody rb = default;
 
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour, IObjectPool
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
+        _itemDrop = FindObjectOfType<ItemDrop>();
     }
 
     void Update()
@@ -85,9 +87,9 @@ public class Enemy : MonoBehaviour, IObjectPool
     }
     public void Deth()
     {
-        var x = Random.Range(0, death.Length);
+        //var x = Random.Range(0, death.Length);
 
-        Instantiate(death[x], this.transform.position, Quaternion.identity);
+        //Instantiate(death[x], this.transform.position, Quaternion.identity);
         
         gameObject.SetActive(false);
         //Instantiate(death[1], this.transform.position, Quaternion.identity);
@@ -97,6 +99,22 @@ public class Enemy : MonoBehaviour, IObjectPool
         //    death.transform.parent = null;
 
         //}
+
+        var item = _itemDrop.Spawn();
+        if (item)
+        {
+            item.transform.position = transform.position;
+        }
         _isActrive = false;
+    }
+
+    public void Pause()
+    {
+
+    }
+
+    public void Resume()
+    {
+
     }
 }

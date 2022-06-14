@@ -5,12 +5,6 @@ using System.Linq;
 using DG.Tweening;
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField, Tooltip("現在レベル"), Min(0)]  int _level = 0;
-    public int Level => _level;
-    [SerializeField, Tooltip("現在経験値"), Min(0)]  int _exp = 0;
-    public int Exp => _exp;
-    [SerializeField, Tooltip("必要経験値"), Min(0)]  int _expPool = 100;
-    public int ExpPool => _expPool;
     [SerializeField, Tooltip("体力"), Min(0)]  int _life = 100;
     public int Life => _life;
     [SerializeField, Tooltip("最大体力"), Min(0)]  int _maxLife = 100;
@@ -32,7 +26,7 @@ public class PlayerState : MonoBehaviour
 
     //[SerializeField]List<Skill> _skill = new List<Skill>();
     [SerializeField] List<GameObject> _skills = new List<GameObject>();
-    [SerializeField] SkillSelect _skllSelect = null;
+    
 
     void Start()
     {
@@ -42,7 +36,7 @@ public class PlayerState : MonoBehaviour
 
     void Update()
     {
-        LevelManagar();
+        //LevelManagar();
         if(_maxLife < _life)
         {
             _life = _maxLife;
@@ -51,28 +45,9 @@ public class PlayerState : MonoBehaviour
         ExAtack();
     }
 
-    void LevelManagar()//レベル管理
-    {
-        if(_exp >= _expPool)
-        {
-            LevelUp();
-        }
-    }
+    
 
-    void LevelUp()//レベルが上がった際の処理
-    {
-        Time.timeScale = 0;
-
-        _exp = 0;
-        _isLevelUp = true;
-        _maxLife += _level * 5;
-        _life = _maxLife;
-        _expPool += _level * 10;
-        _skllSelect.SelectStart();
-        _level ++;
-        Debug.Log("プレイヤーのレベルが" + _level + " になった！");
-        Debug.Log("次のレベルまで" + _expPool + " 必要");
-    }
+    
 
     void ExAtack()//必殺技
     {
@@ -119,9 +94,8 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    public void GetItem(int exp ,int sp , int hp)
+    public void GetItem(int sp , int hp)
     {
-        _exp += exp;
         _sp += sp;
         _life += hp;
     }
@@ -131,7 +105,6 @@ public class PlayerState : MonoBehaviour
         {
             Death();
         }
-        //DamageEf();
         StartCoroutine("DamageEf");
         _life -= damage;
         //Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");

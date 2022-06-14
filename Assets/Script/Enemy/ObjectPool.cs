@@ -6,7 +6,7 @@ using System.Collections.Generic;
 /// Unity上の、特定の型のオブジェクトプール
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class EnemyPools<T> where T : UnityEngine.Object, IObjectPool
+public class ObjectPool<T> where T : UnityEngine.Object, IObjectPool
 {
     T BaseObj = null;
     Transform Parent = null;

@@ -3,35 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager :MonoBehaviour
 {
 	static private GameManager _instance = new GameManager();
 	static public GameManager Instance => _instance;
+
 	private GameManager() { }
 
-	[SerializeField] PlayerState player;
+    [SerializeField, Tooltip("現在レベル"), Min(0)] int _level = 0;
+	static public int Level => _instance._level;
+	[SerializeField, Tooltip("現在経験値"), Min(0)] int _exp = 0;
+    public int Exp => _exp;
+    [SerializeField, Tooltip("必要経験値"), Min(0)] int _expPool = 100;
+    public int ExpPool => _expPool;
+
+    [SerializeField] PlayerState player;
 	[SerializeField] Text timerText;
 	[SerializeField] Text _deathText;
 	[SerializeField] GameObject pauseUI;
 	[SerializeField] GameObject levelUpUI;
 	[SerializeField] GameObject gameOverUI;
+	[SerializeField] SkillSelect _skllSelect = null;
 
 	bool _levelEvent = false;
 	bool _isDeath = false;
 	float _deathTime = 0;
 
-	int _level = 0;
-	static public int Level => _instance._level;
+
 	int _stackLevelup = 0;
 	List<int> _passive = new List<int>();
 
 	PlayerState _player;
 	SkillSelect _sklSelect = null;
+	List<IPause> _pauseObjects = new List<IPause>();
 
 	private float second;
 	private int minute;
 	private int hour;
+
 
 	private void Start()
     {
@@ -78,6 +89,30 @@ public class GameManager :MonoBehaviour
 		}
 	}
 
+	public void AddExp(int addexp)
+	{
+		_exp += addexp;
+	}
+	void LevelUp()//レベルが上がった際の処理
+	{
+		Time.timeScale = 0;
+
+		_exp = 0;
+		//_isLevelUp = true;
+		//_maxLife += _level * 5;
+		_expPool += _level * 10;
+		_skllSelect.SelectStart();
+		_level++;
+		Debug.Log("プレイヤーのレベルが" + _level + " になった！");
+		Debug.Log("次のレベルまで" + _expPool + " 必要");
+	}
+	void LevelManagar()//レベル管理
+	{
+		if (_exp >= _expPool)
+		{
+			LevelUp();
+		}
+	}
 	void Timer()
     {
 		second += Time.deltaTime;
@@ -98,7 +133,7 @@ public class GameManager :MonoBehaviour
 
 
 
-	public void Pause()
+	public void PauseUi()
     {
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
@@ -132,14 +167,28 @@ public class GameManager :MonoBehaviour
 
 	}
 
-	public void OnClickStartButton(string st)
+	/// <summary>ポーズをさせるオブジェクトを取得しリストに追加する </summary>
+	/// <param name="pause">ポーズさせるオブジェクト</param>
+	public void AddPauseObject(IPause pause)
 	{
-        //SceneManager.LoadScene();
+		_pauseObjects.Add(pause);
+	}
 
-    }
+	/// <summary>ポーズ</summary>
+	public void Pause()
+	{
+		
+		//Array.ForEach(_pauseObjects.ToArray(), p => p.Pause());
+	}
+
+	/// <summary>ポーズ解除 </summary>
+	public void Restart()
+	{
+		//Array.ForEach(_pauseObjects.ToArray(), p => p.Restart());
+	}
 
 	public void OnClick(string st)
 	{
-		//SceneManager.LoadScene(st);
-	}
+        SceneManager.LoadScene(st);
+    }
 }

@@ -60,7 +60,8 @@ public class SkillSelect : MonoBehaviour
         _canvas.alpha = 1;
         Debug.Log("SelectStart");
         List<SkillSelectTable> table = new List<SkillSelectTable>();
-        var list = GameData.SkillSelectTable.Where(s => _player.Level >= s.Level);
+        //var list = GameData.SkillSelectTable.Where(s => _player.Level >= s.Level);
+        var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
 
         int totalProb = list.Sum(s => s.Probability);
         int rand = Random.Range(0, totalProb);

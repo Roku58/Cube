@@ -28,7 +28,7 @@ public class EnemyGenerator1 : MonoBehaviour
     float _timer = 0.0f;
     [SerializeField] float _cRad = 0.0f;
     Vector3 _popPos = new Vector3(0, 0, 0);
-    EnemyPools<Enemy> _enemyPool = new EnemyPools<Enemy>();
+    ObjectPool<Enemy> _enemyPool = new ObjectPool<Enemy>();
 
     private void Start()
     {
@@ -75,21 +75,5 @@ public class EnemyGenerator1 : MonoBehaviour
         _cRad += 1f;
     }
 
-    //void RandomSpawn()
-    //{
-    //    int choosedIndex = Random.Range(0, enemyPrefabs.Length);
-    //    int enemyvolume = Random.Range(1, 30);
-    //    for (var i = 0; i < enemyvolume; i++)
-    //    {
-    //        float diffPositionX = Random.Range(minPositionX, maxPositonX);
-    //        float diffPositionZ = Random.Range(minPositionZ, maxPositonZ);
-    //        float RotationY = Random.Range(0, 360);
-    //        float RotationZ = Random.Range(0, 360);
-    //        Vector3 position = new Vector3(transform.position.x + diffPositionX, transform.position.y, transform.position.z + diffPositionZ);
-    //        Vector3 rotation = new Vector3(transform.rotation.y + RotationY, transform.rotation.z + RotationZ);
-    //        //, transform.rotation.y + RotationY, transform.rotation.z + RotationZ
 
-    //        Instantiate(enemyPrefabs[choosedIndex], position, Quaternion.Euler(rotation));
-    //    }
-    //}
 }
