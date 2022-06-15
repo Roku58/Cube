@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
 {
     [SerializeField, Tooltip(""), Min(0)] int maxHp = 100;
     [SerializeField, Tooltip(""), Min(0)] int hp = 100;
-    [SerializeField, Tooltip(""), Min(0)] int atk = 1;
+    [SerializeField, Tooltip(""), Min(0)] int atk = 5;
     [SerializeField, Tooltip(""), Min(0)] float speed = 1;
     GameObject player; //
     [SerializeField, Tooltip("")] GameObject bullet; //’e
@@ -51,12 +51,18 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
 
     private void OnCollisionEnter(Collision collision)
     {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerState>().GetDamage(atk);
+        }
+
         if (collision.gameObject.tag == "Weapon")
         {
             //collision.gameObject.GetComponent<PlayerState>().GetDamage(atk);
             //var obj = Instantiate(death, this.transform.position, Quaternion.identity);
             Deth();
         }
+
     }
 
 

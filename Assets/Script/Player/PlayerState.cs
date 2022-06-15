@@ -76,7 +76,7 @@ public class PlayerState : MonoBehaviour
             GameObject newskill = null;
             switch ((SkillDef)skillId)
             {
-                case SkillDef.MeleeWeapon:
+                case SkillDef.Scythes:
                     break;
 
                 case SkillDef.ShotBullet:

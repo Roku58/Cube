@@ -55,12 +55,15 @@ public class SkillSelect : MonoBehaviour
 
     public void SelectStart()
     {
-        _player = GetComponent<PlayerState>();
+        Debug.Log("SelectStart");
         _isSelect = true;
         _canvas.alpha = 1;
         Debug.Log("SelectStart");
-        List<SkillSelectTable> table = new List<SkillSelectTable>();
+
+        //_player = GetComponent<PlayerState>();
         //var list = GameData.SkillSelectTable.Where(s => _player.Level >= s.Level);
+
+        List<SkillSelectTable> table = new List<SkillSelectTable>();
         var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
 
         int totalProb = list.Sum(s => s.Probability);
@@ -93,7 +96,7 @@ public class SkillSelect : MonoBehaviour
         Debug.Log("ƒXƒLƒ‹‘I‘ð");
         GameManager.Instance.LevelUpSelect(_selectTable[index]);
         _isSelect = false;
-        GameManager.Instance.Pause();
+        //GameManager.Instance.Pause();
         _canvas.alpha = 0;
     }
 }

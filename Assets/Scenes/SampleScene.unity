@@ -2842,7 +2842,7 @@ MonoBehaviour:
   pauseUI: {fileID: 965841857}
   levelUpUI: {fileID: 476423210}
   gameOverUI: {fileID: 2098160470}
-  _skllSelect: {fileID: 0}
+  _skllSelect: {fileID: 1797238186097977261}
 --- !u!114 &952903006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25705,7 +25705,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8710827334320340508}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 5000
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour, IObjectPool
 {
+    [SerializeField] bool _isItem = true;
     public int exp = 0;
     public int sp = 0;
     public int hp = 0;
@@ -17,17 +18,19 @@ public class Item : MonoBehaviour, IObjectPool
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void Update()
-    {
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            if(_isItem)
+            {
+                collision.gameObject.GetComponent<PlayerState>().GetItem(sp, hp);
 
-            collision.gameObject.GetComponent<PlayerState>().GetItem(sp, hp);
-            GameManager.Instance.AddExp(exp);
+            }
+            else
+            {
+                GameManager.Instance.AddExp(exp);
+            }
             Deth();
         }
     }

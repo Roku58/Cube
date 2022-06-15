@@ -46,7 +46,8 @@ public class GameManager :MonoBehaviour
 
 	private void Start()
     {
-        second = 0;
+		_sklSelect = GameObject.FindObjectOfType<SkillSelect>();
+		second = 0;
     }
 
     void Update()
@@ -54,7 +55,7 @@ public class GameManager :MonoBehaviour
 		_isDeath = player.IsDeath;
 		Pause();
 		Timer();
-		LevelManagar();
+		//LevelManagar();
 		if (_isDeath)
         {
 			PlayerDeath();
@@ -90,29 +91,35 @@ public class GameManager :MonoBehaviour
 		}
 	}
 
-	void LevelManagar()//レベル管理
-	{
-		if (_exp >= _expPool)
-		{
-			LevelUp();
-		}
-	}
+	//void LevelManagar()//レベル管理
+	//{
+	//	if (_exp >= _expPool)
+	//	{
+	//		LevelUp();
+	//	}
+	//}
 
 	public void AddExp(int addexp)
 	{
 		_exp += addexp;
+		if(_exp >= _expPool)
+        {
+			LevelUp();
+		}
 	}
 
 	void LevelUp()//レベルが上がった際の処理
 	{
-		//Time.timeScale = 0;
 
-		_exp = 0;
-		//_isLevelUp = true;
-		//_maxLife += _level * 5;
-		_expPool += _level * 10;
-		_skllSelect.SelectStart();
+		//Time.timeScale = 0;
 		_level++;
+		_exp = 0;
+        //_isLevelUp = true;
+        //_maxLife += _level * 5;
+        _expPool += _level * 10;
+		Debug.Log("レベルアップ");
+		_skllSelect.SelectStart();
+		
 		Debug.Log("プレイヤーのレベルが" + _level + " になった！");
 		Debug.Log("次のレベルまで" + _expPool + " 必要");
 	}
