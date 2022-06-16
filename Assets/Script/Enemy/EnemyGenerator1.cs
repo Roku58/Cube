@@ -27,6 +27,7 @@ public class EnemyGenerator1 : MonoBehaviour
     GameObject player;
     float _timer = 0.0f;
     [SerializeField] float _cRad = 0.0f;
+    [SerializeField] int _pos = 30;
     Vector3 _popPos = new Vector3(0, 0, 0);
     ObjectPool<Enemy> _enemyPool = new ObjectPool<Enemy>();
 
@@ -70,8 +71,8 @@ public class EnemyGenerator1 : MonoBehaviour
         var go = GameObject.Instantiate(_prefab);
         var script = go.GetComponent<Enemy>();
         */
-        _popPos.x = player.transform.position.x + 20 * Mathf.Cos(_cRad);
-        _popPos.z = player.transform.position.z + 20 * Mathf.Sin(_cRad);
+        _popPos.x = player.transform.position.x + _pos * Mathf.Cos(_cRad);
+        _popPos.z = player.transform.position.z + _pos * Mathf.Sin(_cRad);
         script.transform.position = _popPos;
         _cRad += 1f;
     }

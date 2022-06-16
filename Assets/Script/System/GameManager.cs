@@ -7,13 +7,14 @@ using System.Linq;
 
 public class GameManager :MonoBehaviour
 {
-	static private GameManager _instance = new GameManager();
-	static public GameManager Instance => _instance;
+	//static private GameManager _instance ;
+	//static public GameManager Instance => _instance;
+	public static GameManager Instance;
 
 	private GameManager() { }
 
     [SerializeField, Tooltip("現在レベル"), Min(0)] int _level = 0;
-	static public int Level => _instance._level;
+	static public int Level => Instance._level;
 	[SerializeField, Tooltip("現在経験値"), Min(0)] int _exp = 0;
     public int Exp => _exp;
     [SerializeField, Tooltip("必要経験値"), Min(0)] int _expPool = 100;
@@ -25,7 +26,8 @@ public class GameManager :MonoBehaviour
 	[SerializeField] GameObject pauseUI;
 	[SerializeField] GameObject levelUpUI;
 	[SerializeField] GameObject gameOverUI;
-	 SkillSelect _skllSelect = null;
+	//[SerializeField] SkillSelect _skllSelect ;
+	public SkillSelect _skllSelect;
 
 	//bool _levelEvent = false;
 	bool _isDeath = false;
@@ -43,10 +45,22 @@ public class GameManager :MonoBehaviour
 	private int minute;
 	private int hour;
 
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(this.gameObject);
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+	}
 
 	private void Start()
     {
-		_sklSelect = GameObject.FindObjectOfType<SkillSelect>();
+		//_sklSelect = GetComponent<SkillSelect>();
 		second = 0;
     }
 
@@ -54,6 +68,7 @@ public class GameManager :MonoBehaviour
 	{
 		_isDeath = player.IsDeath;
 		Pause();
+		PauseUi();
 		Timer();
 		//LevelManagar();
 		if (_isDeath)
@@ -98,20 +113,31 @@ public class GameManager :MonoBehaviour
 	//		LevelUp();
 	//	}
 	//}
+	//public void AddExp()
+	//{
+	//	Debug.Log("レップ");
+	//	_exp += 10;
 
-	public void AddExp(int addexp)
-	{
-		_exp += addexp;
-		if(_exp >= _expPool)
+	//	if (_exp >= _expPool)
+	//	{
+	//		LevelUp();
+	//	}
+
+	//}
+    public void GetExp(int addexp)
+    {
+        _exp += addexp;
+
+        if (_exp >= _expPool)
         {
             LevelUp();
         }
-	}
+    }
 
-	void LevelUp()//レベルが上がった際の処理
+    public void LevelUp()//レベルが上がった際の処理
 	{
-
-        Time.timeScale = 0;
+		levelUpUI.SetActive(true);
+        //Time.timeScale = 0;
         _level++;
         _exp = 0;
         //_isLevelUp = true;
@@ -121,11 +147,12 @@ public class GameManager :MonoBehaviour
 
         Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");
-		_skllSelect.SelectStart();
+        _skllSelect.SelectStart();
+        //SkillSelect.instance.SelectStart();
 
-	}
+    }
 
-	void Timer()
+    void Timer()
     {
 		second += Time.deltaTime;
 

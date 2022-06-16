@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class SkillSelect : MonoBehaviour
 {
+    //public static SkillSelect instance;
+
     [SerializeField] List<GameObject> _selectList;
+    [SerializeField] GameObject levelUpUI;
     PlayerState _player;
     List<SkillSelectTable> _selectTable = new List<SkillSelectTable>();
     List<UnityEngine.UI.Text> _selectText = new List<UnityEngine.UI.Text>();
@@ -55,7 +58,8 @@ public class SkillSelect : MonoBehaviour
 
     public void SelectStart()
     {
-        Debug.Log("SelectStart");
+        Time.timeScale = 0;
+
         _isSelect = true;
         _canvas.alpha = 1;
         Debug.Log("SelectStart");
@@ -64,7 +68,11 @@ public class SkillSelect : MonoBehaviour
         //var list = GameData.SkillSelectTable.Where(s => _player.Level >= s.Level);
 
         List<SkillSelectTable> table = new List<SkillSelectTable>();
+        //var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
+        //GameManager _players  = GetComponent<GameManager>();
+
         var list = GameData.SkillSelectTable.Where(s => GameManager.Level >= s.Level);
+
 
         int totalProb = list.Sum(s => s.Probability);
         int rand = Random.Range(0, totalProb);
@@ -97,6 +105,6 @@ public class SkillSelect : MonoBehaviour
         GameManager.Instance.LevelUpSelect(_selectTable[index]);
         _isSelect = false;
         //GameManager.Instance.Pause();
-        _canvas.alpha = 0;
+        levelUpUI.SetActive(false);
     }
 }

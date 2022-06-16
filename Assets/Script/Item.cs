@@ -22,15 +22,17 @@ public class Item : MonoBehaviour, IObjectPool
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(_isItem)
-            {
-                collision.gameObject.GetComponent<PlayerState>().GetItem(sp, hp);
+            GameManager.Instance.GetExp(exp);
 
-            }
-            else
-            {
-                GameManager.Instance.AddExp(exp);
-            }
+            //if(_isItem)
+            //{
+            //    collision.gameObject.GetComponent<PlayerState>().GetItem(sp, hp);
+
+            //}
+            //else
+            //{
+            //    GameManager.Instance.AddExp(exp);
+            //}
             Deth();
         }
     }

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6458697665034233671}
-  - component: {fileID: 2730794212536369198}
   - component: {fileID: 6458697665034233668}
   - component: {fileID: 6458697665034233669}
   - component: {fileID: 6458697665034233666}
   - component: {fileID: 7978927645540430860}
+  - component: {fileID: 7611192661524832235}
   m_Layer: 0
   m_Name: EXP++
   m_TagString: Exp
@@ -36,22 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2730794212536369198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6458697665034233664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73558a823f610bb48b981463b8a0e6fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isItem: 0
-  exp: 10
-  sp: 0
-  hp: 0
 --- !u!33 &6458697665034233668
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -131,3 +115,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &7611192661524832235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458697665034233664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73558a823f610bb48b981463b8a0e6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isItem: 1
+  exp: 20
+  sp: 0
+  hp: 0

@@ -77,12 +77,15 @@ public class PlayerState : MonoBehaviour
             switch ((SkillDef)skillId)
             {
                 case SkillDef.Scythes:
+                    Debug.Log("Scythes");
                     break;
 
                 case SkillDef.ShotBullet:
+                    Debug.Log("ShotBullet");
                     break;
 
                 case SkillDef.AreaAttack:
+                    Debug.Log("ShotBullet");
                     break;
             }
 
@@ -108,7 +111,6 @@ public class PlayerState : MonoBehaviour
         StartCoroutine("DamageEf");
         _life -= damage;
         //Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");
-        //_damageEf.GetComponent<GlitchFx>().enabled = false;
     }
 
     IEnumerator DamageEf()
