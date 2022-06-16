@@ -25,7 +25,7 @@ public class GameManager :MonoBehaviour
 	[SerializeField] GameObject pauseUI;
 	[SerializeField] GameObject levelUpUI;
 	[SerializeField] GameObject gameOverUI;
-	[SerializeField] SkillSelect _skllSelect = null;
+	 SkillSelect _skllSelect = null;
 
 	//bool _levelEvent = false;
 	bool _isDeath = false;
@@ -104,24 +104,25 @@ public class GameManager :MonoBehaviour
 		_exp += addexp;
 		if(_exp >= _expPool)
         {
-			LevelUp();
-		}
+            LevelUp();
+        }
 	}
 
 	void LevelUp()//レベルが上がった際の処理
 	{
 
-		//Time.timeScale = 0;
-		_level++;
-		_exp = 0;
+        Time.timeScale = 0;
+        _level++;
+        _exp = 0;
         //_isLevelUp = true;
         //_maxLife += _level * 5;
         _expPool += _level * 10;
-		Debug.Log("レベルアップ");
+        Debug.Log("レベルアップ");
+
+        Debug.Log("プレイヤーのレベルが" + _level + " になった！");
+        Debug.Log("次のレベルまで" + _expPool + " 必要");
 		_skllSelect.SelectStart();
-		
-		Debug.Log("プレイヤーのレベルが" + _level + " になった！");
-		Debug.Log("次のレベルまで" + _expPool + " 必要");
+
 	}
 
 	void Timer()
