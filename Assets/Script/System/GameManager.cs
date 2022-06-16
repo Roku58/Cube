@@ -83,7 +83,7 @@ public class GameManager :MonoBehaviour
 		switch (table.Type)
 		{
 			case SelectType.Skill:
-				Debug.Log("AddSkill");
+				//Debug.Log("SkillAdd");
 				_player.AddSkill(table.TargetId);
 				break;
 

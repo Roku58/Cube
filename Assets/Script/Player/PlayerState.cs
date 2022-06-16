@@ -71,6 +71,7 @@ public class PlayerState : MonoBehaviour
 
     public void AddSkill(int skillId)
     {
+        Debug.Log("AddSkill");
         var having = _skills.Where(s => s.GetComponent<ISkill>().SkillId == (SkillDef)skillId);
 
         if (having.Count() > 0)
