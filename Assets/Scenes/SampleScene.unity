@@ -2843,6 +2843,8 @@ MonoBehaviour:
   levelUpUI: {fileID: 1797238186624985928}
   gameOverUI: {fileID: 2098160470}
   _skllSelect: {fileID: 1797238186097977261}
+  _passive: 
+  _player: {fileID: 0}
 --- !u!114 &952903006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8281,12 +8283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3e9cf7e1363b247b16dc170b6ac28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectList: []
-  _player: {fileID: 0}
-  _selectText: []
-  _canvas: {fileID: 0}
-  <_isSelect>k__BackingField: 0
-  _startEvent: 0
 --- !u!114 &832431064867221597
 MonoBehaviour:
   m_ObjectHideFlags: 0

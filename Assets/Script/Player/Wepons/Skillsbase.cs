@@ -32,7 +32,7 @@ public interface ISkill
     /// <summary>‰‰ñæ“¾‚ÉŒÄ‚Ô</summary>
     void SetUp();
 
-
+    void SkillUpdate();
     /// <summary>“ñ‰ñ–ÚˆÈ~‚Ìæ“¾‚ÉŒÄ‚Ô</summary>
     void LevelUp();
 }

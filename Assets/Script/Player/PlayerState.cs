@@ -26,12 +26,17 @@ public class PlayerState : MonoBehaviour
 
     //[SerializeField]List<Skill> _skill = new List<Skill>();
     [SerializeField] List<GameObject> _skills = new List<GameObject>();
-    
+    List<ISkill> _skill = new List<ISkill>();
+
 
     void Start()
     {
         //_damageEf = GetComponent<GlitchFx>();
         _life = _maxLife;
+        foreach (var skill in _skills)
+        {
+            skill.GetComponent<ISkill>().SkillUpdate();
+        }
     }
 
     void Update()
@@ -67,6 +72,7 @@ public class PlayerState : MonoBehaviour
     public void AddSkill(int skillId)
     {
         var having = _skills.Where(s => s.GetComponent<ISkill>().SkillId == (SkillDef)skillId);
+
         if (having.Count() > 0)
         {
             having.Single().GetComponent<ISkill>().LevelUp();

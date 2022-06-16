@@ -11,7 +11,7 @@ public class Scythes : MonoBehaviour ,ISkill
     float _timer = 0;
     public float _cooldown { get; set; } = 2;
 
-    void Update()
+    public void SkillUpdate()
     {
         _timer += Time.deltaTime;
         if (_timer >= _cooldown)
@@ -21,6 +21,11 @@ public class Scythes : MonoBehaviour ,ISkill
             _timer -= _cooldown;
         }
     }
+
+    //void Update()
+    //{
+    //    SkillUpdate();
+    //}
     public void SetUp()
     {
         var skill = Instantiate(_scythes);
@@ -33,6 +38,9 @@ public class Scythes : MonoBehaviour ,ISkill
     public void LevelUp()
     {
         _skillLevel++;
+
+
+
         switch (_skillLevel)
         {
             case 2:

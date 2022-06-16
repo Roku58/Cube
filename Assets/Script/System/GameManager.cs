@@ -35,9 +35,9 @@ public class GameManager :MonoBehaviour
 
 
 	int _stackLevelup = 0;
-	List<int> _passive = new List<int>();
+	[SerializeField] List<int> _passive = new List<int>();
 
-	PlayerState _player;
+	[SerializeField] PlayerState _player;
 	SkillSelect _sklSelect = null;
 	List<IPause> _pauseObjects = new List<IPause>();
 
@@ -83,6 +83,7 @@ public class GameManager :MonoBehaviour
 		switch (table.Type)
 		{
 			case SelectType.Skill:
+				Debug.Log("AddSkill");
 				_player.AddSkill(table.TargetId);
 				break;
 
