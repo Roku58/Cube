@@ -20,7 +20,8 @@ public class GameManager :MonoBehaviour
     [SerializeField, Tooltip("必要経験値"), Min(0)] int _expPool = 100;
     public int ExpPool => _expPool;
 
-    [SerializeField] PlayerState player;
+	[SerializeField] PlayerState _player;
+
 	[SerializeField] Text timerText;
 	[SerializeField] Text _deathText;
 	[SerializeField] GameObject pauseUI;
@@ -37,7 +38,6 @@ public class GameManager :MonoBehaviour
 	int _stackLevelup = 0;
 	[SerializeField] List<int> _passive = new List<int>();
 
-	[SerializeField] PlayerState _player;
 	SkillSelect _sklSelect = null;
 	List<IPause> _pauseObjects = new List<IPause>();
 
@@ -60,13 +60,14 @@ public class GameManager :MonoBehaviour
 
 	private void Start()
     {
+
 		//_sklSelect = GetComponent<SkillSelect>();
 		second = 0;
     }
 
     void Update()
 	{
-		_isDeath = player.IsDeath;
+		_isDeath = _player.IsDeath;
 		Pause();
 		PauseUi();
 		Timer();
@@ -83,9 +84,10 @@ public class GameManager :MonoBehaviour
 		switch (table.Type)
 		{
 			case SelectType.Skill:
-				//Debug.Log("SkillAdd");
-				_player.AddSkill(table.TargetId);
-				break;
+                //Debug.Log("SkillAdd");
+                _player.AddSkill(table.TargetId);
+                //_player.AddSkill(0);
+                break;
 
 			case SelectType.Passive:
 				_passive.Add(table.TargetId);

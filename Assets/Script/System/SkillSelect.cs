@@ -103,8 +103,9 @@ public class SkillSelect : MonoBehaviour
     {
         Debug.Log("ƒXƒLƒ‹‘I‘ð");
         GameManager.Instance.LevelUpSelect(_selectTable[index]);
+        levelUpUI.SetActive(false);
         _isSelect = false;
         //GameManager.Instance.Pause();
-        levelUpUI.SetActive(false);
+
     }
 }

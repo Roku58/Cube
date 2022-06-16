@@ -38,7 +38,7 @@ public class Scythes : MonoBehaviour ,ISkill
     public void LevelUp()
     {
         _skillLevel++;
-
+        Debug.Log(_skillLevel);
 
 
         switch (_skillLevel)

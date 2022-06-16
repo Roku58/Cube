@@ -81,20 +81,26 @@ public class PlayerState : MonoBehaviour
         else
         {
             GameObject newskill = null;
+            ISkill newSkill = null;
             switch ((SkillDef)skillId)
             {
                 case SkillDef.Scythes:
+                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Whips"), transform.position, Quaternion.identity);
+                    newSkill = new Scythes();
                     Debug.Log("Scythes");
                     break;
 
                 case SkillDef.ShotBullet:
-                    Debug.Log("ShotBullet");
+                    Debug.Log("Bullet");
                     break;
 
                 case SkillDef.AreaAttack:
                     Debug.Log("ShotBullet");
                     break;
             }
+
+            //newskill.transform.parent = _skillList.transform;
+            //_skillListIcon.transform.GetChild(_skills.Count).transform.GetChild(skillId - 1).gameObject.SetActive(true);
 
             if (newskill != null)
             {
