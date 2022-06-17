@@ -91,7 +91,8 @@ public class GameManager :MonoBehaviour
                 break;
 
 			case SelectType.Passive:
-				_passive.Add(table.TargetId);
+                //_passive.Add(table.TargetId);
+                _player._life += 30;
 				break;
 
 			case SelectType.Execute:

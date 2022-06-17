@@ -18,6 +18,14 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
     Rigidbody rb = default;
     [SerializeField] bool _isboss = false;
 
+    enum EnemyType
+    {
+        Mob ,
+        Boss ,
+        Box ,
+    }
+
+    [SerializeField] EnemyType enemyType = EnemyType.Mob;
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -32,6 +40,10 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
 
     private void FixedUpdate()
     {
+        if (enemyType == EnemyType.Box)
+        {
+            return;
+        }
         Move();
     }
 
@@ -93,10 +105,14 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
     }
     public void Deth()
     {
-        if(_isboss)
+        if(enemyType == EnemyType.Boss)
         {
             int x = Random.Range(0, death.Length);
             Instantiate(death[x]);
+        }
+        else if(enemyType == EnemyType.Box)
+        {
+            
         }
         else
         {

@@ -5,7 +5,7 @@ using System.Linq;
 using DG.Tweening;
 public class PlayerState : MonoBehaviour
 {
-    [SerializeField, Tooltip("‘Ì—Í"), Min(0)]  int _life = 100;
+    [SerializeField, Tooltip("‘Ì—Í"), Min(0)]  public int _life = 100;
     public int Life => _life;
     [SerializeField, Tooltip("Å‘å‘Ì—Í"), Min(0)]  int _maxLife = 100;
     public int MaxLife => _maxLife;
