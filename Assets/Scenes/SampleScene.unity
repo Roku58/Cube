@@ -699,7 +699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wepon: {fileID: 2079875511183532632, guid: 9635fb3506491cb41948763fdb7487a6, type: 3}
   index: 3
-  waitTime: 1.5
+  waitTime: 1
   _randomPos: 1
 --- !u!1001 &70584983
 PrefabInstance:
@@ -10803,7 +10803,7 @@ MonoBehaviour:
     weaponLevel:
     - {fileID: 67932368}
     weaponLevelIndex: 1
-    waitTime: 2
+    waitTime: 1
     canAtack: 1
   - weaponName: Spears
     weaponLevel:
@@ -10814,12 +10814,6 @@ MonoBehaviour:
   - weaponName: Swords
     weaponLevel:
     - {fileID: 1835022311}
-    weaponLevelIndex: 1
-    waitTime: 2
-    canAtack: 1
-  - weaponName: Shield
-    weaponLevel:
-    - {fileID: 274794453}
     weaponLevelIndex: 1
     waitTime: 2
     canAtack: 1
