@@ -32,26 +32,49 @@ public class WeponAttack : MonoBehaviour
     {
         if(_randomPos)
         {
-            StartCoroutine("Atack");
+            //StartCoroutine("Atack");
+            Atack01();
 
         }
         else
         {
-            StartCoroutine("Atack2");
-
+            //StartCoroutine("Atack2");
+            Atack02();
         }
 
     }
 
-    IEnumerator Atack()
+    void Atack01()
     {
-       
+
         for (int i = 0; i < index; i++)
         {
             _playerPos = GameObject.FindGameObjectWithTag("Player");
             Vector3 pos = _playerPos.transform.position;
             pos.x += Random.Range(-10, 10);
             pos.z += Random.Range(-10, 10);
+            Instantiate(_wepon, pos, Quaternion.identity);
+        }
+    }
+
+    void Atack02()
+    {
+
+        _playerPos = GameObject.FindGameObjectWithTag("Player");
+        Vector3 pos = _playerPos.transform.position;
+        for (int i = 0; i < index; i++)
+        {
+            Instantiate(_wepon, pos, Quaternion.identity);
+        }
+    }
+
+    IEnumerator Atack()
+    {
+
+        _playerPos = GameObject.FindGameObjectWithTag("Player");
+        Vector3 pos = _playerPos.transform.position;
+        for (int i = 0; i < index; i++)
+        {
             Instantiate(_wepon, pos, Quaternion.identity);
             yield return new WaitForSeconds(waitTime);
         }
