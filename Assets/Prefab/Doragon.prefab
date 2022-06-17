@@ -3864,7 +3864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   hp: 100
-  atk: 25
+  atk: 10
   speed: 4
   bullet: {fileID: 0}
   death:
@@ -3873,6 +3873,7 @@ MonoBehaviour:
   hitef: {fileID: 0}
   muzzle: {fileID: 0}
   _isboss: 1
+  enemyType: 0
 --- !u!136 &3657170359277374585
 CapsuleCollider:
   m_ObjectHideFlags: 0

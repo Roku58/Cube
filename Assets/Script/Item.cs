@@ -24,14 +24,15 @@ public class Item : MonoBehaviour, IObjectPool
         {
             GameManager.Instance.GetExp(exp);
 
-            //if(_isItem)
-            //{
-            //    collision.gameObject.GetComponent<PlayerState>().GetItem(sp, hp);
+            if (_isItem)
+            {
+                collision.gameObject.GetComponent<PlayerState>().GetItem(sp, hp);
 
-            //}
-            //else
+            }
+            //if (!_isItem)
             //{
-            //    GameManager.Instance.AddExp(exp);
+            //    GameManager.Instance.GetExp(exp);
+
             //}
             Deth();
         }

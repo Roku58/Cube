@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73558a823f610bb48b981463b8a0e6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isItem: 1
   exp: 0
-  sp: 50
+  sp: 100
   hp: 0
 --- !u!33 &6458697665034233668
 MeshFilter:

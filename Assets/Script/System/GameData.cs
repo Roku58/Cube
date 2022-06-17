@@ -27,6 +27,6 @@ public class GameData
         new SkillSelectTable(){ Type = SelectType.Skill, TargetId = 2,Level = 0 , Probability = 80 , Name = "Trap"},
         new SkillSelectTable(){ Type = SelectType.Skill, TargetId = 3,Level = 0 , Probability = 80 , Name = "Shot"},
         new SkillSelectTable(){ Type = SelectType.Skill, TargetId = 4,Level = 0 , Probability = 80 , Name = "Spear"},
-        new SkillSelectTable(){ Type = SelectType.Passive, TargetId = 1,Level = 0 , Probability = 80 , Name = "回復"},
+        new SkillSelectTable(){ Type = SelectType.Passive, TargetId = 1,Level = 0 , Probability = 80 , Name = "Heal"},
     };
 }

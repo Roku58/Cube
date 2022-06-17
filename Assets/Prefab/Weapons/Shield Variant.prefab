@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3753647344124777520, guid: c0d6c059b3316c944a5e32950851005c, type: 3}
       propertyPath: m_Name
-      value: Shield
+      value: Shield Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3753647344124777520, guid: c0d6c059b3316c944a5e32950851005c, type: 3}
       propertyPath: m_IsActive
@@ -162,3 +162,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7467033513876679151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7474007698323449334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d853a0a1779e94caea1379c107ee4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10

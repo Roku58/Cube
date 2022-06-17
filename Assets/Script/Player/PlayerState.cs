@@ -18,7 +18,7 @@ public class PlayerState : MonoBehaviour
     [SerializeField] GameObject[] _exAtack;
     [SerializeField] float _damage;
     [SerializeField] WeponAttack[] _attack;
-
+    [SerializeField] bool _god;
     bool _isDeath = false;
     public bool IsDeath => _isDeath;
 
@@ -141,7 +141,11 @@ public class PlayerState : MonoBehaviour
             Death();
         }
         StartCoroutine("DamageEf");
-        _life -= damage;
+        if(!_god)
+        {
+            _life -= damage;
+
+        }
         //Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + _life + " になった！");
     }
 
