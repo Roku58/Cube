@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wepon: {fileID: 2079875511183532632, guid: 9635fb3506491cb41948763fdb7487a6, type: 3}
-  index: 3
+  index: 0
   waitTime: 1
   _randomPos: 1
 --- !u!1001 &70584983
@@ -2379,7 +2379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wepon: {fileID: 5811775397197599899, guid: e05b90d299feb074d82393b962977f10, type: 3}
-  index: 1
+  index: 0
   waitTime: 1.5
   _randomPos: 1
 --- !u!1001 &220506510
@@ -6130,7 +6130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d18845d8bb3ec47b0475b06521badb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 2
+  _time: 20
   _poolsizu: 1
   _prefab:
   - {fileID: 404962326644084951, guid: 72983a1f55876b54d9f134c36828a6d2, type: 3}
@@ -6190,7 +6190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wepon: {fileID: 5144095239182266154, guid: 5cda849f7a1398843905e2c03609fd5f, type: 3}
-  index: 1
+  index: 0
   waitTime: 1.5
   _randomPos: 1
 --- !u!1001 &680975529
@@ -8714,8 +8714,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 1.120001, z: -8.660254}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 3.1910675, z: -7.071068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9813,15 +9813,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113725988}
-  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 1.120001, z: -8.660254}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 3.1910675, z: -7.071068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1976197002}
   m_Father: {fileID: 375098238}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &1113725991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11865,7 +11865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wepon: {fileID: 7474007698323449334, guid: 2154c1c73c75f334e8e08376e4ac1354, type: 3}
-  index: 1
+  index: 0
   waitTime: 1.5
   _randomPos: 1
 --- !u!4 &1407721903 stripped
@@ -15072,7 +15072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wepon: {fileID: 6379835128283472150, guid: 132d619a1f8cd1648b4b0e88da81dcb1, type: 3}
-  index: 1
+  index: 0
   waitTime: 2.5
   _randomPos: 1
 --- !u!4 &1839620810 stripped
