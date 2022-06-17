@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isItem: 0
-  exp: 1
+  exp: 5
   sp: 0
   hp: 0
 --- !u!33 &6458697665034233668
