@@ -105,14 +105,16 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
     }
     public void Deth()
     {
-        if(enemyType == EnemyType.Boss)
+        if(enemyType == EnemyType.Boss || enemyType == EnemyType.Box)
         {
             int x = Random.Range(0, death.Length);
             Instantiate(death[x]);
         }
         else if(enemyType == EnemyType.Box)
         {
-            
+            int x = Random.Range(0, death.Length);
+            Instantiate(death[x]);
+            Destroy(this);
         }
         else
         {
