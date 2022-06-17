@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
     ItemDrop _itemDrop;
     Animator _anim = default;
     Rigidbody rb = default;
+    [SerializeField] bool _isboss = false;
 
     void Awake()
     {
@@ -60,7 +61,7 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
         {
             //collision.gameObject.GetComponent<PlayerState>().GetDamage(atk);
             //var obj = Instantiate(death, this.transform.position, Quaternion.identity);
-            Deth();
+
         }
 
     }
@@ -69,11 +70,10 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
     public void GetDamage(int damage)
     {
         hp -= damage;
-
+        Debug.Log(damage + " ダメージを受けてプレイヤーのHPが " + hp + " になった！");
         if (hp <= 0)
         {
-            //var go = Instantiate(_expObj, transform.position, Quaternion.identity);
-            //go.AddEXP = _dropEXPValue;
+
             Deth();
         }
     }
@@ -93,13 +93,22 @@ public class Enemy : MonoBehaviour, IObjectPool , IPause
     }
     public void Deth()
     {
-        var item = _itemDrop.Spawn();
-        if (item)
+        if(_isboss)
         {
-            item.transform.position = transform.position;
+            int x = Random.Range(0, death.Length);
+            Instantiate(death[x]);
         }
-        gameObject.SetActive(false);
-        _isActrive = false;
+        else
+        {
+            var item = _itemDrop.Spawn();
+            if (item)
+            {
+                item.transform.position = transform.position;
+            }
+            gameObject.SetActive(false);
+            _isActrive = false;
+        }
+
     }
 
     public void Pause()

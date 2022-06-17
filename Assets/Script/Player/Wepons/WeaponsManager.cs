@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class WeaponsManager : MonoBehaviour
 {
+    [SerializeField] float _cooltime;
     public WeaponLeve[] weapons;
     public Animator[] animators;
-    [SerializeField] float _cooltime;
     float _timer;
 
     private void Start()
     {
-        //for (int i = 0; i < weapons.Length; i++)
-        //{
-        //    animators = weapons[i].GetComponent<Animator>
-        //}
-
 
     }
 

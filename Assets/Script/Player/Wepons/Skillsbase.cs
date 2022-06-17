@@ -52,8 +52,10 @@ public interface ISkill
 
 public enum SkillDef
 {
+
     Invalid = 0,
     Scythes = 1,
-    ShotBullet = 2,
-    AreaAttack = 3,
+    Trap = 2,
+    Shot = 3,
+    Spears = 4,
 }

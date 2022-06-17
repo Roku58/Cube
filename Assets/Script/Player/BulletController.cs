@@ -11,10 +11,11 @@ public class BulletController : MonoBehaviour
 
     private void Start()
     {
-        Bullet();
+       
     }
     void Update()
     {
+        Bullet();
     }
 
     void Bullet()
@@ -39,17 +40,10 @@ public class BulletController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().GetDamage(damage);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
             //GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
             //Destroy(effect, 1.0f);
         };
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            other.gameObject.GetComponent<Enemy>().GetDamage(damage);
-        }
-    }
 }

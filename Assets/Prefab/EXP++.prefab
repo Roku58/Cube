@@ -128,6 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isItem: 1
-  exp: 20
+  exp: 10
   sp: 0
   hp: 0

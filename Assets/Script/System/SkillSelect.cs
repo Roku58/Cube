@@ -62,7 +62,7 @@ public class SkillSelect : MonoBehaviour
 
         _isSelect = true;
         _canvas.alpha = 1;
-        Debug.Log("SelectStart");
+        //Debug.Log("SelectStart");
 
         //_player = GetComponent<PlayerState>();
         //var list = GameData.SkillSelectTable.Where(s => _player.Level >= s.Level);
@@ -101,7 +101,7 @@ public class SkillSelect : MonoBehaviour
 
     public void OnClick(int index)
     {
-        Debug.Log("スキル選択");
+        //Debug.Log("スキル選択");
         GameManager.Instance.LevelUpSelect(_selectTable[index]);
         levelUpUI.SetActive(false);
         _isSelect = false;

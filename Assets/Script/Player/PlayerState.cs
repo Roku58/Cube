@@ -17,6 +17,7 @@ public class PlayerState : MonoBehaviour
     [SerializeField] GameObject _damageEf;
     [SerializeField] GameObject[] _exAtack;
     [SerializeField] float _damage;
+    [SerializeField] WeponAttack[] _attack;
 
     bool _isDeath = false;
     public bool IsDeath => _isDeath;
@@ -71,43 +72,61 @@ public class PlayerState : MonoBehaviour
 
     public void AddSkill(int skillId)
     {
-        Debug.Log("AddSkill");
+        //Debug.Log("AddSkill");
         var having = _skills.Where(s => s.GetComponent<ISkill>().SkillId == (SkillDef)skillId);
 
-        if (having.Count() > 0)
-        {
-            having.Single().GetComponent<ISkill>().LevelUp();
-        }
-        else
-        {
+        //if (having.Count() > 0)
+        //{
+        //    having.Single().GetComponent<ISkill>().LevelUp();
+        //}
+        //else
+        //{
             GameObject newskill = null;
             ISkill newSkill = null;
             switch ((SkillDef)skillId)
             {
                 case SkillDef.Scythes:
-                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Whips"), transform.position, Quaternion.identity);
-                    newSkill = new Scythes();
+                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Scythes"), transform.position, Quaternion.identity);
+                    //newSkill = new Scythes();
+                    _attack[0].index++;
                     Debug.Log("Scythes");
                     break;
 
-                case SkillDef.ShotBullet:
-                    Debug.Log("Bullet");
+                case SkillDef.Trap:
+                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Trap"), transform.position, Quaternion.identity);
+                    //newSkill = new Trap();
+                    _attack[1].index++;
+                    Debug.Log("Trap");
                     break;
 
-                case SkillDef.AreaAttack:
-                    Debug.Log("ShotBullet");
+                case SkillDef.Shot:
+                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Shield"), transform.position, Quaternion.identity);
+                    //newSkill = new Shot();
+                    _attack[2].index++;
+                    Debug.Log("Shot");
                     break;
+
+                case SkillDef.Spears:
+                    //newskill = Instantiate(Resources.Load<GameObject>("Skills/Shield"), transform.position, Quaternion.identity);
+                    //newSkill = new Shot();
+                    _attack[3].index++;
+                    Debug.Log("Spears");
+                    break;
+
+
             }
 
             //newskill.transform.parent = _skillList.transform;
             //_skillListIcon.transform.GetChild(_skills.Count).transform.GetChild(skillId - 1).gameObject.SetActive(true);
 
-            if (newskill != null)
-            {
-                newskill.GetComponent<ISkill>().SetUp();
-                _skills.Add(newskill);
-            }
-        }
+            //if (newSkill != null)
+            //{
+            //    Debug.Log("SetUp");
+            //    //newskill.GetComponent<ISkill>().SetUp();
+            //    newSkill.SetUp();
+            //    _skills.Add(newskill);
+            //}
+        //}
     }
 
     public void GetItem(int sp , int hp)

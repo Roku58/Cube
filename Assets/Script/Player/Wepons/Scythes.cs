@@ -16,21 +16,22 @@ public class Scythes : MonoBehaviour ,ISkill
         _timer += Time.deltaTime;
         if (_timer >= _cooldown)
         {
-
-            ActiveSkill();
+            StartCoroutine("ActiveSkill");
             _timer -= _cooldown;
         }
     }
 
-    //void Update()
-    //{
-    //    SkillUpdate();
-    //}
+    void Update()
+    {
+        SkillUpdate();
+    }
     public void SetUp()
     {
-        var skill = Instantiate(_scythes);
-        skill.transform.SetParent(transform);
-        _weaps.Add(skill);
+        _skillLevel++;
+        Debug.Log(_skillLevel);
+        //var skill = Instantiate(_scythes);
+        //skill.transform.SetParent(transform);
+        //_weaps.Add(skill);
     }
 
 
@@ -44,45 +45,27 @@ public class Scythes : MonoBehaviour ,ISkill
         switch (_skillLevel)
         {
             case 2:
-                _weaps.Add(Instantiate(_scythes));
                 break;
             case 3:
 
-                foreach (var a in _weaps)
-                {
 
-                }
                 break;
             case 4:
                 break;
             case 5:
 
-                foreach (var a in _weaps)
-                {
-
-                }
                 break;
             default:
                 break;
         }
     }
 
-    public  void ActiveSkill()
+    public IEnumerator ActiveSkill()
     {
-        PlayerState _moveController = FindObjectOfType<PlayerState>();
-
-        var rote = transform.rotation;
-        var firstRote = 0f;
-        var secondRote = 0f;
-
-        foreach (var a in _weaps)
+        for(int i = 0; i <= _skillLevel;i++)
         {
-            rote = Quaternion.Euler(0.0f, 0.0f, firstRote + secondRote);
-            a.transform.position = _moveController.gameObject.transform.position;
-            a.transform.rotation = rote;
-            a.SetActive(true);
-            //StartCoroutine(Method.DelayMethod(0.15f, () => a.SetActive(false)));
-            secondRote += 180;
+            Instantiate(_scythes);
+            yield return  (null);
         }
     }
 }

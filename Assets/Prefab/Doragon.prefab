@@ -3864,14 +3864,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   hp: 100
-  atk: 1
+  atk: 25
   speed: 4
   bullet: {fileID: 0}
   death:
-  - {fileID: 6458697665034233664, guid: 0b4cc81dc67503a458c129813367240e, type: 3}
   - {fileID: 6458697665034233664, guid: 45aae40c8e371b64183c73f422828662, type: 3}
+  - {fileID: 6458697665034233664, guid: 202841c9b3d445e46a62e306386d7502, type: 3}
   hitef: {fileID: 0}
   muzzle: {fileID: 0}
+  _isboss: 1
 --- !u!136 &3657170359277374585
 CapsuleCollider:
   m_ObjectHideFlags: 0

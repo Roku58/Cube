@@ -47,15 +47,16 @@ public class GameManager :MonoBehaviour
 
 	private void Awake()
 	{
-		if (Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(this.gameObject);
-		}
-		else
-		{
-			Destroy(this.gameObject);
-		}
+		Instance = this;
+		//if (Instance == null)
+		//{
+		//	Instance = this;
+		//	DontDestroyOnLoad(this.gameObject);
+		//}
+		//else
+		//{
+		//	Destroy(this.gameObject);
+		//}
 	}
 
 	private void Start()
@@ -148,7 +149,7 @@ public class GameManager :MonoBehaviour
         _expPool += _level * 10;
         Debug.Log("レベルアップ");
 
-        Debug.Log("プレイヤーのレベルが" + _level + " になった！");
+        //Debug.Log("プレイヤーのレベルが" + _level + " になった！");
         Debug.Log("次のレベルまで" + _expPool + " 必要");
         _skllSelect.SelectStart();
         //SkillSelect.instance.SelectStart();

@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: f5087afa7333a81449fb9f4b6540356a
+guid: 8f2cfe5dd293b2d4eacbce8ed383af66
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - _scythes: {fileID: 1987494655316232342, guid: 56281c56fe0d1334fb6e8f78f93ea6e6, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

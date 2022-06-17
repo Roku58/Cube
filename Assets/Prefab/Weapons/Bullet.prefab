@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 100
-  _lifeTime: 3
+  _lifeTime: 2
   damage: 5
   explosionPrefab: {fileID: 0}
 --- !u!54 &4610208546418979377
