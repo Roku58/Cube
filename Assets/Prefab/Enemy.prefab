@@ -153,15 +153,23 @@ PrefabInstance:
     - target: {fileID: 2702721667567611251, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f8e027ec914748249bfc8c0912787a39, type: 2}
+      objectReference: {fileID: 2100000, guid: d2da5d16ac744d645b05f5451ab2a0a5, type: 2}
+    - target: {fileID: 2709021965215860200, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2864800148120937408, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f8e027ec914748249bfc8c0912787a39, type: 2}
+      objectReference: {fileID: 2100000, guid: d2da5d16ac744d645b05f5451ab2a0a5, type: 2}
+    - target: {fileID: 2991103005071868957, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4245941217502750236, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f8e027ec914748249bfc8c0912787a39, type: 2}
+      objectReference: {fileID: 2100000, guid: d2da5d16ac744d645b05f5451ab2a0a5, type: 2}
     - target: {fileID: 4595864669798825965, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -218,6 +226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6546149592541230697, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6743456558446016860, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
       propertyPath: m_Name
       value: Cube
@@ -246,6 +258,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 7950181858090652354, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2567f3dd85baf047beb042aad85750d, type: 3}
 --- !u!4 &7328473316541919136 stripped
